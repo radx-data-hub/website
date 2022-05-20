@@ -7,6 +7,8 @@ import { getStrapiMedia } from "utils/media"
 import { getGlobalData } from "utils/api"
 import "@/styles/index.css"
 
+
+
 const MyApp = ({ Component, pageProps }) => {
   // Extract the data we need
   const { global } = pageProps
