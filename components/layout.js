@@ -18,7 +18,7 @@ const Layout = ({ children, global, pageContext }) => {
           />
         )}
         <Navbar navbar={navbar} pageContext={pageContext} />
-        <div>{children}</div>
+        <div >{children}</div>
       </div>
       {/* Aligned to the bottom */}
       <Footer footer={footer} />

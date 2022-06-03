@@ -8,18 +8,22 @@ const ButtonContent = ({ button, appearance, compact }) => {
     <div
       className={classNames(
         // Common classes
-        "block w-36 py-1 px-2 flex justify-center text-center items-center uppercase font-semibold text-[10px] min-h-[42px] border-2 rounded-md",
+        "block flex justify-center text-center items-center uppercase font-semibold text-[10px]  border-2 rounded-md",
         // Full-size button
         {
-          "px-8 py-4": compact === false,
+          "": compact === false,
         },
         // Compact button
         {
-          "": compact === true,
+          "px-5 py-2": compact === true,
         },
         // Specific to when the button is fully dark
         {
           "bg-radxBlue text-white border-radxBlue": appearance === "dark",
+        },
+        // Specific to when the footer button is fully dark
+        {
+          "bg-radxBlue text-white border-radxBlue py-1 px-2 min-h-[42px] w-40": appearance === "dark-footer",
         },
         // Specific to when the button is dark outlines
         {

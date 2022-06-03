@@ -12,11 +12,11 @@ const Footer = ({ footer }) => {
           {footer.logo && (
             <NextImage width="120" height="33" media={footer.logo} />
           )}
-          <div className="text-sm text-white">
+          <div className="text-xs text-white font-semibold">
             <div>{footer.smallText}</div>
           </div>
         </div>
-        <nav className="border-l-2 border-white  mb-6 pl-12 flex flex-wrap flex-row lg:gap-20 items-start lg:justify-end ">
+        <nav className="lg:border-l-2 border-white mb-6 lg:pl-12 flex flex-wrap flex-row lg:gap-20 items-start lg:justify-end ">
           {footer.columns.map((footerColumn) => (
             <div
               key={footerColumn.id}
@@ -26,9 +26,9 @@ const Footer = ({ footer }) => {
                 {footerColumn.links.map((link) => (
                   <li
                     key={link.id}
-                    className="pl-6"
+                    className="pr-6"
                   >
-                    <ButtonLink compact={true} appearance={"dark"} button={link} link={link}>{link.text}</ButtonLink>
+                    <ButtonLink compact={false} appearance={"dark-footer"} button={link} link={link}>{link.text}</ButtonLink>
                   </li>
                 ))}
               </ul>
