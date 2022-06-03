@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-import { linkPropTypes, mediaPropTypes } from "utils/types";
-import NextImage from "./image";
-import CustomLink from "./custom-link";
-import ButtonLink from "./button-link";
+import PropTypes from "prop-types"
+import { linkPropTypes, mediaPropTypes } from "utils/types"
+import NextImage from "./image"
+import CustomLink from "./custom-link"
+import ButtonLink from "./button-link"
 
 const Footer = ({ footer }) => {
   return (
@@ -21,14 +21,19 @@ const Footer = ({ footer }) => {
             <div
               key={footerColumn.id}
               className="mt-10 lg:mt-0 w-6/12 lg:w-auto"
-            >{console.log(footerColumn.links)}
+            >
+              {console.log(footerColumn.links)}
               <ul className="flex flex-nowrap">
                 {footerColumn.links.map((link) => (
-                  <li
-                    key={link.id}
-                    className="pr-6"
-                  >
-                    <ButtonLink compact={false} appearance={"dark-footer"} button={link} link={link}>{link.text}</ButtonLink>
+                  <li key={link.id} className="pr-6">
+                    <ButtonLink
+                      compact={false}
+                      appearance={"dark-footer"}
+                      button={link}
+                      link={link}
+                    >
+                      {link.text}
+                    </ButtonLink>
                   </li>
                 ))}
               </ul>
@@ -38,8 +43,8 @@ const Footer = ({ footer }) => {
       </div>
       <div className="bg-green py-2" />
     </footer>
-  );
-};
+  )
+}
 
 Footer.propTypes = {
   footer: PropTypes.shape({
@@ -54,6 +59,6 @@ Footer.propTypes = {
     ),
     smallText: PropTypes.string.isRequired,
   }),
-};
+}
 
-export default Footer;
+export default Footer

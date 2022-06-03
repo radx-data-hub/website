@@ -23,7 +23,8 @@ const ButtonContent = ({ button, appearance, compact }) => {
         },
         // Specific to when the footer button is fully dark
         {
-          "bg-radxBlue text-white border-radxBlue py-1 px-2 min-h-[42px] w-40": appearance === "dark-footer",
+          "bg-radxBlue text-white border-radxBlue py-1 px-2 min-h-[42px] w-40":
+            appearance === "dark-footer",
         },
         // Specific to when the button is dark outlines
         {
@@ -36,7 +37,7 @@ const ButtonContent = ({ button, appearance, compact }) => {
         // Specific to when the button is white outlines
         {
           "text-white border-white": appearance === "white-outline",
-        },
+        }
       )}
     >
       <span>{button.text}</span>
