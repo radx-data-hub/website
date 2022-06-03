@@ -8,6 +8,21 @@ module.exports = {
     extend: {
       colors: {
         primary: colors.indigo,
+        green: {
+          light: "",
+          DEFAULT: "#14614E",
+          dark: "",
+        },
+        coralBlue: {
+          light: "",
+          DEFAULT: "#5AA2AC",
+          dark: "",
+        },
+        radxBlue: {
+          light: "",
+          DEFAULT: "#243D7E",
+          dark: "",
+        },
       },
       container: {
         center: true,
