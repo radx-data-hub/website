@@ -6,6 +6,7 @@ import ButtonLink from "../elements/button-link"
 
 const Slideshow = ({ data }) => {
   /* eslint-disable @next/next/no-img-element */
+  const fadeImages = data.pics
   return (
     <div className={"slide-container " + "relative"}>
       <Fade arrows={false}>
