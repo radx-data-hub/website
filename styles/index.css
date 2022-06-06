@@ -48,3 +48,13 @@ html {
   display: inline-block;
   margin-left: 0.5em;
 }
+
+.each-fade::after {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background: linear-gradient(114deg, rgba(255,255,255,0.7) 19%, rgba(255,255,255,0.7) 19%, rgba(255,0,0,0) 19%, rgba(255,0,0,0) 72%, rgba(255,255,255,0.5004595588235294) 72%, rgba(255,255,255,0.4976584383753502) 77%, rgba(255,0,0,0) 77%, rgba(255,109,109,0) 84%, rgba(255,255,255,0.7) 84%, rgba(255,255,255,0.7) 85%);
+  content: '';
+}

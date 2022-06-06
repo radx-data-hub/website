@@ -3,12 +3,14 @@ import PropTypes from "prop-types"
 import { buttonLinkPropTypes } from "utils/types"
 import CustomLink from "./custom-link"
 
-const ButtonContent = ({ button, appearance, compact }) => {
+const ButtonContent = ({ button, appearance, compact, img }) => {
+  /* eslint-disable @next/next/no-img-element */
   return (
     <div
+      style={{ zIndex: 1 }}
       className={classNames(
         // Common classes
-        "block flex justify-center text-center items-center uppercase font-semibold text-[10px]  border-2 rounded-md",
+        "block flex justify-center text-center items-center uppercase font-semibold text-[10px] border-2 rounded-md",
         // Full-size button
         {
           "": compact === false,
@@ -37,21 +39,34 @@ const ButtonContent = ({ button, appearance, compact }) => {
         // Specific to when the button is white outlines
         {
           "text-white border-white": appearance === "white-outline",
+        },
+        // Specific to when the button is for the home page slideshow component
+        {
+          "text-white bg-orange w-max px-8 pt-5 pb-6 rounded-2xl absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border-0":
+            appearance === "slideshow",
         }
       )}
     >
-      <span>{button.text}</span>
+      {img ? (
+        <div>
+          <div className="font-normal text-left text-base">{button.text}</div>
+          <img alt="radx logo" src={img} style={{ width: "150px" }} />
+        </div>
+      ) : (
+        <span>{button.text}</span>
+      )}
     </div>
   )
 }
 
-const ButtonLink = ({ button, appearance, compact = false }) => {
+const ButtonLink = ({ button, appearance, compact = false, img }) => {
   return (
     <CustomLink link={button}>
       <ButtonContent
         button={button}
         appearance={appearance}
         compact={compact}
+        img={img}
       />
     </CustomLink>
   )

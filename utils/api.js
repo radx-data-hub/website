@@ -2,7 +2,7 @@ import qs from "qs"
 
 export function getStrapiURL(path) {
   return `${
-    process.env.NEXT_PUBLIC_STRAPI_API_URL || ""
+    process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://18.206.126.96:1337"
   }${path}`
 }
 
@@ -231,6 +231,21 @@ export async function getPageData({ slug, locale, preview }) {
                       type
                     }
                     title
+                  }
+                  ... on ComponentSectionsSlideshow {
+                    id
+                    btn {
+                      id
+                      url
+                      newTab
+                      text
+                      type
+                    }
+                    pics {
+                      img {
+                        ...FileParts
+                      }
+                    }
                   }
                 }
               }

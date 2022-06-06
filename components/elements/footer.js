@@ -22,7 +22,6 @@ const Footer = ({ footer }) => {
               key={footerColumn.id}
               className="mt-10 lg:mt-0 w-6/12 lg:w-auto"
             >
-              {console.log(footerColumn.links)}
               <ul className="flex flex-nowrap">
                 {footerColumn.links.map((link) => (
                   <li key={link.id} className="pr-6">

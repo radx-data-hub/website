@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import Markdown from "react-markdown"
+import React from "react"
 
 const RichText = ({ data }) => {
   return (

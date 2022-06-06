@@ -18,6 +18,11 @@ module.exports = {
           DEFAULT: "#5AA2AC",
           dark: "",
         },
+        orange: {
+          light: "",
+          DEFAULT: "#CF6729",
+          dark: "",
+        },
         radxBlue: {
           light: "",
           DEFAULT: "#243D7E",
