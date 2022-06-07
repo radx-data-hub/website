@@ -59,3 +59,56 @@ html {
   background: linear-gradient(114deg, rgba(255,255,255,0.5) 19%, rgba(255,255,255,0.5) 19%, rgba(255,0,0,0) 19%, rgba(255,0,0,0) 72%, rgba(255,255,255,0.25) 72%, rgba(255,255,255,0.25) 77%, rgba(255,0,0,0) 77%, rgba(255,109,109,0) 84%, rgba(255,255,255,0.4) 84%, rgba(255,255,255,0.4) 85%);
   content: '';
 }
+
+.rich-text-additions a {
+  color: #243D7E;
+  font-weight:bold;
+}
+
+.rich-text-additions img {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  top: 79px;
+  position: relative;
+  margin-top: -49px;
+}
+
+.rich-text-additions h3 {
+  display:inline-block;
+  margin: 0;
+  padding: 0;
+  color: #629dd1;
+}
+
+/* .rich-text-additions li {
+    list-style: none;
+    padding-left: 0 !important;
+}
+
+.rich-text-additions li::before {content: "•"; color: #14614E;
+  display: inline-block; 
+  margin-left: -16px;
+  margin-right: 10px;
+}
+
+.rich-text-additions ul {
+  margin-left: 40px;
+} */
+
+.rich-text-additions h2 {
+  color: #4A66AC;
+  margin-top: 0;
+}
+
+@media (max-width: 480px) {
+  .rich-text-additions img {
+    display: block;
+    top: 0;
+    position: relative;
+    margin-top: 49px;
+  }
+  .rich-text-additions ul li ul li {
+    margin-left: -36px;
+  }
+}

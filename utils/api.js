@@ -204,6 +204,7 @@ export async function getPageData({ slug, locale, preview }) {
                   ... on ComponentSectionsRichText {
                     id
                     content
+                    border
                   }
                   ... on ComponentSectionsPricing {
                     id
