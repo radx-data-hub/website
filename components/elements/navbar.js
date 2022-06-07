@@ -10,7 +10,6 @@ import MobileNavMenu from "./mobile-nav-menu"
 import ButtonLink from "./button-link"
 import NextImage from "./image"
 import CustomLink from "./custom-link"
-import LocaleSwitch from "../locale-switch"
 
 const Navbar = ({ navbar, pageContext }) => {
   const router = useRouter()

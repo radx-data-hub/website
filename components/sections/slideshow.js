@@ -3,23 +3,21 @@ import React from "react"
 import { Fade } from "react-slideshow-image"
 import "react-slideshow-image/dist/styles.css"
 import ButtonLink from "../elements/button-link"
+import Image from "next/image"
 
 const Slideshow = ({ data }) => {
-  /* eslint-disable @next/next/no-img-element */
-  const fadeImages = data.pics
   return (
     <div className={"slide-container " + "relative"}>
       <Fade arrows={false}>
-        {fadeImages.map((img, i) => {
+        {data.pics.map((img, i) => {
           return (
-            <div className="each-fade" key={img + i}>
-              <div style={{ width: "100%" }} className="tt">
-                <img
-                  alt="covid picture"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                  src={img.img.data.attributes.url}
-                />
-              </div>
+            <div className="each-fade container" key={img + i}>
+              <Image
+                width="1220px"
+                height="460px"
+                src={img.img.data.attributes.url}
+                alt={"hero image"}
+              />
             </div>
           )
         })}
@@ -33,10 +31,10 @@ const Slideshow = ({ data }) => {
   )
 }
 
-// Slideshow.propTypes = {
-//   data: PropTypes.shape({
-//     content: PropTypes.string,
-//   }),
-// }
+Slideshow.propTypes = {
+  data: PropTypes.shape({
+    pics: PropTypes.array,
+  }),
+}
 
 export default Slideshow

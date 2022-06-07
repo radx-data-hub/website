@@ -2,9 +2,9 @@ import classNames from "classnames"
 import PropTypes from "prop-types"
 import { buttonLinkPropTypes } from "utils/types"
 import CustomLink from "./custom-link"
+import Image from "next/image"
 
 const ButtonContent = ({ button, appearance, compact, img }) => {
-  /* eslint-disable @next/next/no-img-element */
   return (
     <div
       style={{ zIndex: 1 }}
@@ -42,7 +42,7 @@ const ButtonContent = ({ button, appearance, compact, img }) => {
         },
         // Specific to when the button is for the home page slideshow component
         {
-          "text-white bg-orange w-max px-8 pt-5 pb-6 rounded-2xl absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border-0":
+          "text-white shadow-lg bg-orange w-max px-8 pt-5 pb-6 rounded-2xl absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border-0":
             appearance === "slideshow",
         }
       )}
@@ -50,7 +50,7 @@ const ButtonContent = ({ button, appearance, compact, img }) => {
       {img ? (
         <div>
           <div className="font-normal text-left text-base">{button.text}</div>
-          <img alt="radx logo" src={img} style={{ width: "150px" }} />
+          <Image width="150px" height="33px" src={img} alt={"radx logo"} />
         </div>
       ) : (
         <span>{button.text}</span>
@@ -79,6 +79,8 @@ ButtonLink.propTypes = {
     "white-outline",
     "white",
     "dark-outline",
+    "slideshow",
+    "dark-footer",
   ]),
   compact: PropTypes.bool,
 }
