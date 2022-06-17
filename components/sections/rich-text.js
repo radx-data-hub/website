@@ -1,10 +1,12 @@
 import PropTypes from "prop-types"
 import Markdown from "react-markdown"
+import React from "react"
 
 const RichText = ({ data }) => {
   return (
-    <div className="prose prose-lg container py-12">
-      <Markdown>{data.content}</Markdown>
+    <div className="prose-lg container py-12">
+      <Markdown className="rich-text-additions">{data.content}</Markdown>
+      {data.border && <hr className="border-orange border-[1.4px]" />}
     </div>
   )
 }
@@ -12,6 +14,7 @@ const RichText = ({ data }) => {
 RichText.propTypes = {
   data: PropTypes.shape({
     content: PropTypes.string,
+    border: PropTypes.bool,
   }),
 }
 

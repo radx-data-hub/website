@@ -204,6 +204,7 @@ export async function getPageData({ slug, locale, preview }) {
                   ... on ComponentSectionsRichText {
                     id
                     content
+                    border
                   }
                   ... on ComponentSectionsPricing {
                     id
@@ -231,6 +232,31 @@ export async function getPageData({ slug, locale, preview }) {
                       type
                     }
                     title
+                  }
+                  ... on ComponentSectionsSlideshow {
+                    id
+                    btn {
+                      id
+                      url
+                      newTab
+                      text
+                      type
+                    }
+                    pics {
+                      img {
+                        ...FileParts
+                      }
+                    }
+                  }
+                  ... on ComponentSectionsPartnersComponent {
+                    id
+                    Content {
+                      image {
+                        ...FileParts
+                      }
+                      Title
+                      Body
+                    }
                   }
                 }
               }
