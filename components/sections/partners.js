@@ -34,12 +34,12 @@ const PartnerLogos = ({logos, setTabIndex, tabIndex}) => {
     setTabIndex(id)
 
     const currentContent = document.getElementById(`content-${id}`)
-    console.log(currentContent.offsetHeight, "currentContent.offsetHeight")
+    //  console.log(currentContent.offsetHeight, "currentContent.offsetHeight")
   
     const currentContentHeight = originalHeight + currentContent.offsetHeight
-    console.log("currentContentHeight", currentContentHeight)
-    console.log("maxHeight", maxHeight)
-    console.log("originalHeight", originalHeight)
+    // console.log("currentContentHeight", currentContentHeight)
+    // console.log("maxHeight", maxHeight)
+    // console.log("originalHeight", originalHeight)
     if (currentContentHeight > maxHeight) {
       setMaxHeight(currentContentHeight)
     }
@@ -83,7 +83,7 @@ const PartnerLogos = ({logos, setTabIndex, tabIndex}) => {
 }
 
 const PartnerContent = ({id, title, body, active}) => {
-  console.log("is active?", active, id)
+//   console.log("is active?", active, id)
     return (
         <div id={`content-${id}`} 
         className="flex flex-col absolute inset-x-0 top-48 px-8 pb-4 inline-block partners"
@@ -106,7 +106,7 @@ const Partners = ({ data }) => {
     const partnersContainer = document.getElementById("partnersContainer")
     const partnersContainerHeight = document.getElementById("partnersContainer").offsetHeight
     const currentContentHeight = document.getElementById(`content-${tabIndex}`).offsetHeight
-    console.log("P:", partnersContainerHeight, "C:", currentContentHeight)
+    // console.log("P:", partnersContainerHeight, "C:", currentContentHeight)
     if (partnersContainerHeight !== 200 + currentContentHeight) {
       partnersContainer.style.height = `${200 + currentContentHeight}px`
     }
