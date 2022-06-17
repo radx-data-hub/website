@@ -87,7 +87,7 @@ const PartnerContent = ({id, title, body, active}) => {
     return (
         <div id={`content-${id}`} 
         className="flex flex-col absolute inset-x-0 top-48 px-8 pb-4 inline-block"
-        style={{  visibility: active ? "visible" : "hidden", border: "2px solid red" }}>
+        style={{  visibility: active ? "visible" : "hidden" }}>
             <h2>{title}</h2>
             <div className="text-1xl flex-shrink">{body}</div>
         </div>
@@ -129,7 +129,7 @@ const Partners = ({ data }) => {
     <div 
       id="partnersContainer"
       className="sm:prose-md prose-lg container py-8 relative flex flex-col justify-between " 
-      style={{ height: "auto", border: "2px solid blue" }}>
+      style={{ height: "auto" }}>
         <PartnerLogos logos={ partners.map((partner)=> partner.imageURL) } setTabIndex={setTabIndex} tabIndex={tabIndex} />
         {partners && partners.map(({ id, title, body })=> {
             return (
