@@ -1,5 +1,4 @@
 import PropTypes from "prop-types"
-import Markdown from "react-markdown"
 import React, { useState, useEffect, useRef } from "react"
 
 const showPartner = (id) => {
@@ -25,10 +24,9 @@ const PartnerLogos = ({logos, setTabIndex, tabIndex, indexRef}) => {
   
   const onHover = (e) => {
     const id = e.target.id.slice(-1)
-    showPartner(id)
-    setTabIndex(id)
 
-    const currentContent = document.getElementById(`content-${id}`)
+    setTabIndex(id)
+    showPartner(id)
   }
 
   const onLeave = (e) => {
@@ -36,10 +34,10 @@ const PartnerLogos = ({logos, setTabIndex, tabIndex, indexRef}) => {
 
     const currentFocus = document.getElementById(`logo-${id}`)
     currentFocus.removeAttribute("class")
-    const currentContent = document.getElementById(`content-${e.target.id.slice(-1)}`)
+    const currentContent = document.getElementById(`content-${id}`)
     currentContent.style.visibility = "hidden"
 
-    setTabIndex((indexRef.current) % 4)
+    setTabIndex((id === indexRef.current ? indexRef.current : indexRef.current + 1) % 4)
   }
 
   return (
@@ -67,11 +65,11 @@ const PartnerLogos = ({logos, setTabIndex, tabIndex, indexRef}) => {
   )
 }
 
-const PartnerContent = ({id, title, body, active}) => {
+const PartnerContent = ({id, title, body, tabIndex}) => {
     return (
         <div id={`content-${id}`} 
-        className="flex flex-col absolute inset-x-0 top-40 px-8 inline-block partners"
-        style={{  visibility: active ? "visible" : "hidden" }}>
+        className="flex flex-col absolute inset-x-0 top-40 px-8 pt-8 inline-block partners rich-text-additions"
+        style={{  visibility: id === tabIndex ? "visible" : "hidden" }}>
             <h2>{title}</h2>
             <div className="text-1xl flex-shrink">{body}</div>
         </div>
@@ -122,7 +120,7 @@ const Partners = ({ data }) => {
 
         {partners && partners.map(({ id, title, body })=> {
             return (
-                <PartnerContent key={id} id={id} title={title} body={body} active={ id === tabIndex } />
+                <PartnerContent key={id} id={id} title={title} body={body} tabIndex={tabIndex}  />
             )
         })}
     </div>
