@@ -5,7 +5,6 @@ import React, { useState, useEffect, useRef } from "react"
 const showPartner = (id) => {
   const currentLogo = document.getElementById(`logo-${id}`)
   currentLogo.setAttribute("class", "border-2")
-  // console.log(currentLogo)
   
   const currentContent = document.getElementById(`content-${id}`)
   currentContent.style.visibility = "visible"
@@ -18,8 +17,7 @@ const setContainerHeight = (initialHeight = null) => {
   {
       return selector.offsetHeight;
   }));
-  // console.log(maxSelectorHeight, "max")
-  // console.log((initialHeight || partnersContainer.offsetHeight) + maxSelectorHeight)
+
   partnersContainer.style.height = `${(initialHeight || partnersContainer.offsetHeight) + maxSelectorHeight}px`
 }
 
@@ -127,7 +125,6 @@ const Partners = ({ data }) => {
                 <PartnerContent key={id} id={id} title={title} body={body} active={ id === tabIndex } />
             )
         })}
-        {/* <div style={{ clear: "both", lineHeight: "0", height: "0", fontSize: "0em" }}></div> */}
     </div>
   )
 }
