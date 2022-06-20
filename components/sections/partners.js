@@ -1,10 +1,9 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect, useRef } from "react"
 
-const showPartner = (id) => {
-  const currentLogo = document.getElementById(`logo-${id}`)
-  currentLogo.setAttribute("class", "border-2 border-solid border-black")
-  
+const showPartner = (id, numOfPartners) => {
+  const previousLogo = document.getElementById(`logo-${id - 1 === -1 ? numOfPartners - 1 : (id - 1) % numOfPartners}`)
+  previousLogo.style.transform = ""
   const currentContent = document.getElementById(`content-${id}`)
   currentContent.style.visibility = "visible"
 } 
@@ -23,10 +22,14 @@ const setContainerHeight = (initialHeight = null) => {
 const PartnerLogos = ({logos, setTabIndex, tabIndex, indexRef, setAnimate, numOfPartners}) => {
   
   const onHover = (e) => {
+    setAnimate(false)
+
     const id = e.target.id.slice(-1)
     
-    setAnimate(false)
-    showPartner(id)
+    const currentLogo = document.getElementById(`logo-${id}`)
+    currentLogo.style.transform = ""
+
+    showPartner(id, numOfPartners)
     setTabIndex(id)
   }
 
@@ -54,7 +57,7 @@ const PartnerLogos = ({logos, setTabIndex, tabIndex, indexRef, setAnimate, numOf
               <img 
                 onMouseEnter={(e) => onHover(e)} 
                 onMouseOut={(e) => onLeave(e)}
-                style={{ width: "100%", height: "100%", border: idx === tabIndex ? "solid 2px" : "" }} 
+                style={{ width: "100%", height: "100%" }} 
                 key={idx} 
                 id={`logo-${idx}`}
                 className="partnerLogos grow"
@@ -88,6 +91,8 @@ const Partners = ({ data }) => {
 
   useEffect(() => {
     setTimeout(() => setWindowWidth(window.innerWidth), 3000)
+    const currentLogo = document.getElementById('logo-0')
+    currentLogo.style.transform = "scale(1.2)"
   }, [])
 
   useEffect(() => {
@@ -98,7 +103,12 @@ const Partners = ({ data }) => {
     const timer = setInterval(() => {
       if (animate)
       {
-        setTabIndex((indexRef.current + 1) % NUMBER_OF_PARTNERS)
+        const previousLogo = document.getElementById(`logo-${indexRef.current % NUMBER_OF_PARTNERS}`)
+        previousLogo.style.transform = ""
+        const tab = (indexRef.current + 1) % NUMBER_OF_PARTNERS
+        setTabIndex(tab)
+        const currentLogo = document.getElementById(`logo-${tab}`)
+        currentLogo.style.transform = "scale(1.2)"
       }
     }, 3000)
 
@@ -111,7 +121,7 @@ const Partners = ({ data }) => {
   useEffect(() => {
     if (!animate)
     {
-      showPartner(indexRef.current)
+      showPartner(indexRef.current, NUMBER_OF_PARTNERS)
     }
   }, [animate])
 
