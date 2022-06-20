@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react"
 
 const showPartner = (id) => {
   const currentLogo = document.getElementById(`logo-${id}`)
-  currentLogo.setAttribute("class", "border-2")
+  currentLogo.setAttribute("class", "border-2 border-solid border-black")
   
   const currentContent = document.getElementById(`content-${id}`)
   currentContent.style.visibility = "visible"
@@ -20,13 +20,14 @@ const setContainerHeight = (initialHeight = null) => {
   partnersContainer.style.height = `${(initialHeight || partnersContainer.offsetHeight) + maxSelectorHeight}px`
 }
 
-const PartnerLogos = ({logos, setTabIndex, tabIndex, indexRef}) => {
+const PartnerLogos = ({logos, setTabIndex, tabIndex, indexRef, setAnimate, numOfPartners}) => {
   
   const onHover = (e) => {
     const id = e.target.id.slice(-1)
-
-    setTabIndex(id)
+    
+    setAnimate(false)
     showPartner(id)
+    setTabIndex(id)
   }
 
   const onLeave = (e) => {
@@ -37,7 +38,8 @@ const PartnerLogos = ({logos, setTabIndex, tabIndex, indexRef}) => {
     const currentContent = document.getElementById(`content-${id}`)
     currentContent.style.visibility = "hidden"
 
-    setTabIndex((id === indexRef.current ? indexRef.current : indexRef.current + 1) % 4)
+    setAnimate(true)
+    setTabIndex((id === indexRef.current ? indexRef.current : indexRef.current + 1) % numOfPartners)
   }
 
   return (
@@ -77,6 +79,8 @@ const PartnerContent = ({id, title, body, tabIndex}) => {
 }
 
 const Partners = ({ data }) => {  
+  const NUMBER_OF_PARTNERS = 4
+  const [animate, setAnimate] = useState(true)
   const [windowWidth, setWindowWidth] = useState(0)
   const [tabIndex, setTabIndex] = useState(0)
   const indexRef = useRef(tabIndex)
@@ -91,13 +95,25 @@ const Partners = ({ data }) => {
   }, [windowWidth])
 
   useEffect(() => {
-    const timer = setInterval(() => setTabIndex((indexRef.current + 1) % 4), 3000)
+    const timer = setInterval(() => {
+      if (animate)
+      {
+        setTabIndex((indexRef.current + 1) % NUMBER_OF_PARTNERS)
+      }
+    }, 3000)
 
     if (windowWidth !== window.innerWidth) {
       setWindowWidth(window.innerWidth)
     }
     return () => clearInterval(timer)
   }, [tabIndex])
+
+  useEffect(() => {
+    if (!animate)
+    {
+      showPartner(indexRef.current)
+    }
+  }, [animate])
 
   const partners = data.Content?.map((partner, idx) => {
     return (
@@ -116,7 +132,14 @@ const Partners = ({ data }) => {
       className="sm:prose-md prose-lg container mb-12 relative flex flex-col justify-between " 
       style={{ height: "auto" }}>
 
-        <PartnerLogos logos={ partners.map((partner)=> partner.imageURL) } setTabIndex={setTabIndex} tabIndex={tabIndex} indexRef={indexRef} />
+        <PartnerLogos 
+          logos={ partners.map((partner)=> partner.imageURL) } 
+          setTabIndex={setTabIndex} 
+          tabIndex={tabIndex} 
+          indexRef={indexRef} 
+          setAnimate={setAnimate}
+          numOfPartners={NUMBER_OF_PARTNERS}
+        />
 
         {partners && partners.map(({ id, title, body })=> {
             return (
