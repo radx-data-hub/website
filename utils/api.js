@@ -255,6 +255,16 @@ export async function getPageData({ slug, locale, preview }) {
                       }
                     }
                   }
+                  ... on ComponentSectionsPartnersComponent {
+                    id
+                    Content {
+                      image {
+                        ...FileParts
+                      }
+                      Title
+                      Body
+                    }
+                  }
                 }
               }
             }
