@@ -62,14 +62,14 @@ const PartnerLogos = ({
   }
 
   return (
-    <div className="container flex items-center justify-between bg-gray-100 h-40">
+    <div className="container flex items-center justify-around bg-gray-100">
       {logos &&
         logos.map((logo, idx) => {
           return (
             <div
               key={idx}
               className="grow object-scale-down flex items-center"
-              style={{ width: "100px", height: "100px" }}
+              style={{ height: "130px" }}
             >
               {/* eslint-disable @next/next/no-img-element */}
               <img
@@ -103,7 +103,8 @@ const PartnerContent = ({ id, title, body, tabIndex }) => {
 }
 
 const Partners = ({ data }) => {
-  const NUMBER_OF_PARTNERS = 4
+  // Changed the hard coded 4 to data.Content.length so that it can always be in line with the partners added in the api
+  const NUMBER_OF_PARTNERS = data.Content.length
   const [animate, setAnimate] = useState(true)
   const [windowWidth, setWindowWidth] = useState(0)
   const [tabIndex, setTabIndex] = useState(0)
