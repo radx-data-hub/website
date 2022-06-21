@@ -242,6 +242,13 @@ export async function getPageData({ slug, locale, preview }) {
                       text
                       type
                     }
+                    btn2 {
+                      id
+                      url
+                      newTab
+                      text
+                      type
+                    }
                     pics {
                       img {
                         ...FileParts
