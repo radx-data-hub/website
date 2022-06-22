@@ -74,11 +74,30 @@ html {
   margin-top: -49px;
 }
 
+.rich-text-additions ul li img {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  top: 177px;
+  position: relative;
+  margin-top: -119px;
+  margin-left: -23px;
+}
+
 .rich-text-additions h3 {
   display:inline-block;
   margin: 0;
   padding: 0;
   color: #629dd1;
+}
+
+.rich-text-additions h4 {
+  display:inline-block;
+  margin: 0;
+  padding: 0;
+  color: #5AA2AC;
+  font-size: 1.6rem;
+  margin-bottom: 0px;
 }
 
 .rich-text-additions h2 {
@@ -95,6 +114,16 @@ html {
   }
   .rich-text-additions ul li ul li {
     margin-left: -36px;
+  }
+  .rich-text-additions ul li ul li ul li {
+    margin-left: -26px;
+  }
+
+  .rich-text-additions ul li img {
+    display: block;
+    top: 0;
+    position: relative;
+    margin-top: 49px;
   }
 }
 

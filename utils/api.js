@@ -265,6 +265,11 @@ export async function getPageData({ slug, locale, preview }) {
                       Body
                     }
                   }
+                  ... on ComponentSectionsHeader {
+                    id
+                    title
+                    type
+                  }
                 }
               }
             }
