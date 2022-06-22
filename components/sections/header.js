@@ -3,7 +3,6 @@
 import React from "react"
 
 const Header = ({ data }) => {
-  console.log(data)
   return (
     <div className="container mt-12">
       <h2 className="mb-[8px] text-[#4a66ac] font-bold text-2xl">
