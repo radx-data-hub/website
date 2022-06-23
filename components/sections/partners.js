@@ -148,7 +148,7 @@ const Partners = ({ data }) => {
     if (!animate) {
       showPartner(indexRef.current, NUMBER_OF_PARTNERS)
     }
-  }, [animate])
+  }, [animate, NUMBER_OF_PARTNERS])
 
   const partners = data.Content?.map((partner, idx) => {
     return {
