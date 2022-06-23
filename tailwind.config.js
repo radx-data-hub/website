@@ -13,11 +13,6 @@ module.exports = {
           DEFAULT: "#14614E",
           dark: "",
         },
-        coralBlue: {
-          light: "",
-          DEFAULT: "#5AA2AC",
-          dark: "",
-        },
         orange: {
           light: "",
           DEFAULT: "#CF6729",
@@ -26,6 +21,26 @@ module.exports = {
         radxBlue: {
           light: "",
           DEFAULT: "#243D7E",
+          dark: "",
+        },
+        skyBlue: {
+          light: "",
+          DEFAULT: "#629DD1",
+          dark: "",
+        },
+        aquaBlue: {
+          light: "",
+          DEFAULT: "#4a66ac",
+          dark: "",
+        },
+        marinaBlue: {
+          light: "",
+          DEFAULT: "#297fd5",
+          dark: "",
+        },
+        coralBlue: {
+          light: "",
+          DEFAULT: "#5AA2AC",
           dark: "",
         },
       },
