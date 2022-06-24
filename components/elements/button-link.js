@@ -25,7 +25,7 @@ const ButtonContent = ({ button, appearance, compact, img }) => {
         },
         // Specific to when the footer button is fully dark
         {
-          "bg-radxBlue text-white border-radxBlue py-1 px-2 min-h-[42px] w-40":
+          "bg-radxBlue text-white border-radxBlue mb-4 sm:mb-0 py-1 px-2 min-h-[42px] w-40":
             appearance === "dark-footer",
         },
         // Specific to when the button is dark outlines
@@ -42,8 +42,13 @@ const ButtonContent = ({ button, appearance, compact, img }) => {
         },
         // Specific to when the button is for the home page slideshow component
         {
-          "text-white shadow-lg bg-orange w-max px-8 pt-5 pb-6 rounded-2xl absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border-0":
-            appearance === "slideshow",
+          "text-white text-sm shadow-lg bg-orange h-20 px-6 w-40 rounded-lg border-0 rounded-r-[0]":
+            appearance === "slideshow-1",
+        },
+        // Specific to when the button is for the home page slideshow component
+        {
+          "text-white text-xs shadow-lg bg-radxBlue h-20 px-6 w-40 rounded-lg border-0 rounded-l-[0]":
+            appearance === "slideshow-2",
         }
       )}
     >

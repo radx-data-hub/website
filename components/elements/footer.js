@@ -18,11 +18,8 @@ const Footer = ({ footer }) => {
         </div>
         <nav className="lg:border-l-2 border-white mb-6 lg:pl-12 flex flex-wrap flex-row lg:gap-20 items-start lg:justify-end ">
           {footer.columns.map((footerColumn) => (
-            <div
-              key={footerColumn.id}
-              className="mt-10 lg:mt-0 w-6/12 lg:w-auto"
-            >
-              <ul className="flex flex-nowrap">
+            <div key={footerColumn.id} className="mt-10 lg:mt-0 lg:w-auto">
+              <ul className="flex flex-wrap sm:flex-nowrap">
                 {footerColumn.links.map((link) => (
                   <li key={link.id} className="pr-6">
                     <ButtonLink

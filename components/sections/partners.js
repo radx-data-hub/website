@@ -101,6 +101,7 @@ const PartnerLogos = ({
   return (
     <div
       id="partnerLogosContainer"
+      // justify-around
       className="container flex items-center place-content-evenly flex-wrap bg-gray-100 h-auto"
       style={{ minHeight: "120px" }}
     >
@@ -110,7 +111,7 @@ const PartnerLogos = ({
             <div
               key={idx}
               className="grow object-scale-down flex items-center"
-              style={{ width: "100px", height: "100px", margin: "0px 10px" }}
+              style={{ width: "100px", height: "130px", margin: "0px 10px" }}
             >
               {/* eslint-disable @next/next/no-img-element */}
               <img
@@ -213,8 +214,7 @@ const Partners = ({ data }) => {
     if (!animate) {
       resetPartnerLogoTransform(indexRef.current, NUMBER_OF_PARTNERS)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [animate])
+  }, [animate, NUMBER_OF_PARTNERS])
 
   return (
     <div

@@ -242,6 +242,13 @@ export async function getPageData({ slug, locale, preview }) {
                       text
                       type
                     }
+                    btn2 {
+                      id
+                      url
+                      newTab
+                      text
+                      type
+                    }
                     pics {
                       img {
                         ...FileParts
@@ -257,6 +264,11 @@ export async function getPageData({ slug, locale, preview }) {
                       Title
                       Body
                     }
+                  }
+                  ... on ComponentSectionsHeader {
+                    id
+                    title
+                    type
                   }
                 }
               }

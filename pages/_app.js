@@ -15,6 +15,7 @@ const MyApp = ({ Component, pageProps }) => {
   }
 
   const { metadata, favicon, metaTitleSuffix } = global.attributes
+  // console.log(metadata);
 
   return (
     <>

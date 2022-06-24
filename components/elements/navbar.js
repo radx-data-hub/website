@@ -32,7 +32,7 @@ const Navbar = ({ navbar, pageContext }) => {
               {navbar.links.map((navLink) => (
                 <li key={navLink.id}>
                   <CustomLink link={navLink} locale={router.locale}>
-                    <div className="hover:text-radxBlue font-medium text-sm text-green px-2 py-1 uppercase">
+                    <div className="hover:text-radxBlue font-medium text-lg text-green px-2 py-1 uppercase">
                       {navLink.text}
                     </div>
                   </CustomLink>
