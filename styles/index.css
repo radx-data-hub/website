@@ -105,7 +105,7 @@ html {
   margin-top: 0;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
   .rich-text-additions img {
     display: block;
     top: 0;
@@ -113,10 +113,7 @@ html {
     margin-top: 49px;
   }
   .rich-text-additions ul li ul li {
-    margin-left: -36px;
-  }
-  .rich-text-additions ul li ul li ul li {
-    margin-left: -26px;
+    margin-left: -38px;
   }
 
   .rich-text-additions ul li img {
