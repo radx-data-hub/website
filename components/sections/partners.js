@@ -111,7 +111,7 @@ const PartnerLogos = ({
             <div
               key={idx}
               className="grow object-scale-down flex items-center"
-              style={{ width: "100px", height: "130px", margin: "0px 10px" }}
+              style={{height: "130px", margin: "0px 10px" }}
             >
               {/* eslint-disable @next/next/no-img-element */}
               <img
