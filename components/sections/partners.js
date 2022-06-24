@@ -111,7 +111,7 @@ const PartnerLogos = ({
             <div
               key={idx}
               className="grow object-scale-down flex items-center"
-              style={{height: "130px", margin: "0px 10px" }}
+              style={{ height: "130px", margin: "0px 10px" }}
             >
               {/* eslint-disable @next/next/no-img-element */}
               <img
@@ -141,10 +141,7 @@ const PartnerContent = (params) => {
   const { title, body } = params.currentPartner
 
   return (
-    <div
-      id={"partnerContent"}
-      className="flex flex-col partners px-8 pt-8 rich-text-additions"
-    >
+    <div id={"partnerContent"} className="flex flex-col partners px-8 pt-8">
       <h2 style={{ color: HIGHLIGHT_TEXT_COLOR, margin: "0" }}>{title}</h2>
       <Markdown className="text-1xl flex-shrink">{body}</Markdown>
     </div>
