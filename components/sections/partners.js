@@ -8,43 +8,43 @@ const ANIMATION_TIMER = 6000
 const HIGHLIGHT_TEXT_COLOR = "rgb(90, 162, 172)"
 
 // NOT CURRENTLY USED
-/* FADE OUT EFFECT FOR CONTENT 
-* target - target element
-* speed - how fast should the content fade out? set to 200 by default.
-*/
+/* FADE OUT EFFECT FOR CONTENT
+ * target - target element
+ * speed - how fast should the content fade out? set to 200 by default.
+ */
 const fadeOutEffect = (target, speed = 450) => {
-  var fadeTarget = document.getElementById(target);
+  var fadeTarget = document.getElementById(target)
   var fadeEffect = setInterval(function () {
-      if (!fadeTarget.style.opacity) {
-          fadeTarget.style.opacity = 1;
-      }
-      if (fadeTarget.style.opacity > 0) {
-          fadeTarget.style.opacity -= 0.2;
-      } else {
-          clearInterval(fadeEffect);
-      }
-  }, speed);
+    if (!fadeTarget.style.opacity) {
+      fadeTarget.style.opacity = 1
+    }
+    if (fadeTarget.style.opacity > 0) {
+      fadeTarget.style.opacity -= 0.2
+    } else {
+      clearInterval(fadeEffect)
+    }
+  }, speed)
 }
 
-/* FADE IN EFFECT FOR CONTENT 
-* target - target element
-* speed - how fast should the content fade in? set to 200 by default.
-*/
+/* FADE IN EFFECT FOR CONTENT
+ * target - target element
+ * speed - how fast should the content fade in? set to 200 by default.
+ */
 const fadeInEffect = (target, speed = 200) => {
-  var fadeTarget = document.getElementById(target);
+  var fadeTarget = document.getElementById(target)
   var fadeEffect = setInterval(function () {
-      if (fadeTarget.style.opacity <= 1) {
-          fadeTarget.style.opacity = parseFloat(fadeTarget.style.opacity) + 0.08;
-      } else {
-          clearInterval(fadeEffect);
-      }
-  }, speed);
+    if (fadeTarget.style.opacity <= 1) {
+      fadeTarget.style.opacity = parseFloat(fadeTarget.style.opacity) + 0.08
+    } else {
+      clearInterval(fadeEffect)
+    }
+  }, speed)
 }
 
-/* RESETS THE TRANSFORM ON THE CURRENT AND PREVIOUS PARTNER LOGO IN ANIMATION 
-* id - Index of partner in Partners array
-* numOfPartners - total number of partners
-*/
+/* RESETS THE TRANSFORM ON THE CURRENT AND PREVIOUS PARTNER LOGO IN ANIMATION
+ * id - Index of partner in Partners array
+ * numOfPartners - total number of partners
+ */
 const resetPartnerLogoTransform = (id, numOfPartners) => {
   const currentLogo = document.getElementById(`logo-${id}`)
   currentLogo.style.transform = ""
@@ -57,12 +57,11 @@ const resetPartnerLogoTransform = (id, numOfPartners) => {
   previousLogo.style.transform = ""
 }
 
-
-/* PARTNER LOGOS COMPONENT 
-*  Displays all partner logos within a container
-*  onHover of logo - the animation is paused and content for selected partner will remain visible
-*  onLeave of logo - animation is resumed
-*/
+/* PARTNER LOGOS COMPONENT
+ *  Displays all partner logos within a container
+ *  onHover of logo - the animation is paused and content for selected partner will remain visible
+ *  onLeave of logo - animation is resumed
+ */
 const PartnerLogos = ({
   logos,
   setTabIndex,
@@ -72,7 +71,6 @@ const PartnerLogos = ({
   setCurrentPartner,
   numOfPartners,
 }) => {
-
   const onHover = (e) => {
     setAnimate(false)
     const partnerContent = document.getElementById("partnerContent")
@@ -101,8 +99,11 @@ const PartnerLogos = ({
   }
 
   return (
-    <div id="partnerLogosContainer" className="container flex items-center place-content-evenly flex-wrap bg-gray-100 h-auto"
-      style={{ minHeight: "120px"}}>
+    <div
+      id="partnerLogosContainer"
+      className="container flex items-center place-content-evenly flex-wrap bg-gray-100 h-auto"
+      style={{ minHeight: "120px" }}
+    >
       {logos &&
         logos.map((logo, idx) => {
           return (
@@ -129,12 +130,12 @@ const PartnerLogos = ({
   )
 }
 
-/* PARTNER CONTENT COMPONENT 
-*  Displays individual parenter content based on current logo selected 
-*  {currentPartner} - object managed by state in Partner Container that holds current partner
-*     title - Title of Partner
-*     body - Partner description
-*/
+/* PARTNER CONTENT COMPONENT
+ *  Displays individual parenter content based on current logo selected
+ *  {currentPartner} - object managed by state in Partner Container that holds current partner
+ *     title - Title of Partner
+ *     body - Partner description
+ */
 const PartnerContent = (params) => {
   const { title, body } = params.currentPartner
 
@@ -149,13 +150,13 @@ const PartnerContent = (params) => {
   )
 }
 
-/* PARTNERS MAIN COMPONENT 
-*  Container that holds Partner Logos and Partner Content components. 
-*  Determines the total NUMBER_OF_PARTNERS
-*  Creates Partners array 
-*  Manages state
-*  Controls animation of Partner Logos and Partner Content components
-*/
+/* PARTNERS MAIN COMPONENT
+ *  Container that holds Partner Logos and Partner Content components.
+ *  Determines the total NUMBER_OF_PARTNERS
+ *  Creates Partners array
+ *  Manages state
+ *  Controls animation of Partner Logos and Partner Content components
+ */
 const Partners = ({ data }) => {
   const NUMBER_OF_PARTNERS = data.Content?.length || 0
   const partners = data.Content?.map((partner, idx) => {
@@ -172,7 +173,6 @@ const Partners = ({ data }) => {
   const [tabIndex, setTabIndex] = useState(NUMBER_OF_PARTNERS)
   const indexRef = useRef(tabIndex)
   indexRef.current = tabIndex
-  
 
   useEffect(() => {
     setCurrentPartner(partners[0])
@@ -180,11 +180,11 @@ const Partners = ({ data }) => {
 
     const currentLogo = document.getElementById("logo-0")
     currentLogo.style.transform = "scale(1.2)"
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
     const timer = setInterval(() => {
-    
       if (animate) {
         const partnerContent = document.getElementById("partnerContent")
         partnerContent.style.opacity = 0.2
@@ -202,7 +202,6 @@ const Partners = ({ data }) => {
         const currentLogo = document.getElementById(`logo-${tab}`)
         currentLogo.style.transition = "scale 1s"
         currentLogo.style.transform = "scale(1.2)"
-
       }
     }, ANIMATION_TIMER)
 
@@ -210,11 +209,11 @@ const Partners = ({ data }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tabIndex])
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!animate) {
       resetPartnerLogoTransform(indexRef.current, NUMBER_OF_PARTNERS)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [animate])
 
   return (
@@ -233,10 +232,7 @@ const Partners = ({ data }) => {
         numOfPartners={NUMBER_OF_PARTNERS}
       />
 
-      <PartnerContent
-        currentPartner={currentPartner}
-      />
-      
+      <PartnerContent currentPartner={currentPartner} />
     </div>
   )
 }
