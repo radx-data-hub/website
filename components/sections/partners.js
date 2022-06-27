@@ -198,7 +198,7 @@ const Partners = ({ data }) => {
         setCurrentPartner(partners[tab])
 
         const currentLogo = document.getElementById(`logo-${tab}`)
-        currentLogo.style.transition = "scale 1s"
+        currentLogo.style.transition = "all 1.25s"
         currentLogo.style.transform = "scale(1.2)"
       }
     }, ANIMATION_TIMER)
