@@ -5,37 +5,22 @@ import { fetchEvents } from "utils/msft-graph-api";
 
 export default function Calendar(props) {
   const [events, setEvents] = useState(filterByDate(props.eventData));
-  const [session, loading] = useSession();
 
   useEffect(() => {
-    if (session) {
-      setLoggedIn(true);
-      // eventData contains every event in the RADx calendar, logged in users see every event
       async function fetchMyAPI() {
-        let eventData2 = await fetchEvents(props.token);
-        let sortedEvents = filterByDate(eventData2);
-        setEvents(sortedEvents);
-      }
-      fetchMyAPI();
-    } else {
-      // Events created in the RADx Calendar with out a category label are collected in filteredEvents
-      // These are the events avaiable to the public
-      async function fetchMyAPI() {
-        let eventData2 = await fetchEvents(props.token);
-        const publicEvents = eventData2.filter((event) => {
+        let eventData = await fetchEvents(props.token);
+        const filteredEvents = eventData.filter((event) => {
           if (
-            event.categories.length === 0 ||
             event.categories[0] === "Green category"
           ) {
             return event;
           }
         });
-        let sortedEvents = filterByDate(publicEvents);
+        let sortedEvents = filterByDate(filteredEvents);
         setEvents(sortedEvents);
       }
       fetchMyAPI();
-    }
-  }, [props.token, session]);
+  }, [props.token]);
 
   return (
     <>
