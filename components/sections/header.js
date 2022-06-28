@@ -4,7 +4,6 @@ import React from "react"
 import EventCard from "../elements/event/event-card"
 
 const Header = ({ data }) => {
-
   let dummyData = [
     {
       title: "Ongoing",

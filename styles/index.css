@@ -69,19 +69,15 @@ html {
   display: inline-block;
   margin: 0;
   padding: 0;
-  top: 79px;
+  top: 180px;
   position: relative;
-  margin-top: -49px;
+  margin-top: -125px;
 }
 
 .rich-text-additions ul li img {
   display: inline-block;
   margin: 0;
   padding: 0;
-  top: 177px;
-  position: relative;
-  margin-top: -119px;
-  margin-left: -23px;
 }
 
 .rich-text-additions h3 {
@@ -118,7 +114,7 @@ html {
     margin-top: 49px;
   }
   .rich-text-additions ul li ul li {
-    margin-left: -38px;
+    margin-left: -29px;
   }
 
   .rich-text-additions ul li img {
