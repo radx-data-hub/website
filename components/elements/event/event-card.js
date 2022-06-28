@@ -17,7 +17,7 @@ const EventCard = ({ data }) => {
       <div className="md:w-[80%]">
         <h2 className="text-coralBlue text-2xl font-bold">{data.title}</h2>
         <h3 className="text-base font-bold mb-5">{data.timeAndDate}</h3>
-        <Markdown className="text-lg">{data.body}</Markdown>
+        <Markdown className="text-lg event-card">{data.body}</Markdown>
       </div>
     </div>
   )

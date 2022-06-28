@@ -4,13 +4,14 @@ import React from "react"
 import EventCard from "../elements/event/event-card"
 
 const Header = ({ data }) => {
+
   let dummyData = [
     {
       title: "Ongoing",
       timeAndDate: "",
-      body: "The RADx Data Hub Partners hold individual and small-group introduction sessions with early adopters and testers of the RADx Data Hub. To schedule one of these sessions, please contact us.",
+      body: "The RADx Data Hub Partners hold individual and small-group introduction sessions with early adopters and testers of the RADx Data Hub. To schedule one of these sessions, [please contact us](https://docs.google.com/forms/d/11x_ToM6Fe4x-llcZqkZbW283NqiG8g_Oe5ApXBKvxPc/viewform?edit_requested=true).",
       image:
-        "https://radx-images.s3.amazonaws.com/Rad_X_Event_14_1_63e4c8a584.png",
+        "https://radx-images.s3.amazonaws.com/Rad_X_Calendar_8be31c46d5.png?updated_at=2022-06-28T17:58:21.536Z",
     },
     {
       title: "RADx (C)DCC Quarterly Meeting",
