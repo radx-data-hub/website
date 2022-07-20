@@ -5,7 +5,7 @@ import React from "react"
 const RichText = ({ data }) => {
   return (
     <div className="prose-lg container mt-6">
-      <Markdown className="rich-text-additions">{data.content}</Markdown>
+      <Markdown linkTarget="_blank" className="rich-text-additions">{data.content}</Markdown>
       {data.border && <hr className="border-orange border-[1.4px]" />}
     </div>
   )
