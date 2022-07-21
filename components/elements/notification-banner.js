@@ -20,9 +20,9 @@ const NotificationBanner = ({ data: { text, type }, closeSelf }) => {
         <div className="rich-text-banner flex-1">
           <Markdown>{text}</Markdown>
         </div>
-        <button onClick={closeSelf} className="px-1 py-1 flex-shrink-0">
+        {/* <button onClick={closeSelf} className="px-1 py-1 flex-shrink-0">
           <MdClose className="h-6 w-auto" color="#fff" />
-        </button>
+        </button> */}
       </div>
     </div>
   )
