@@ -42,12 +42,12 @@ const ButtonContent = ({ button, appearance, compact, img }) => {
         },
         // Specific to when the button is for the home page slideshow component
         {
-          "text-white text-sm shadow-lg bg-orange h-20 px-6 w-40 rounded-lg border-0 rounded-r-[0]":
+          "text-white text-sm shadow-lg bg-orange h-28 px-6 w-48 rounded-lg border-0 rounded-r-[0]":
             appearance === "slideshow-1",
         },
         // Specific to when the button is for the home page slideshow component
         {
-          "text-white text-xs shadow-lg bg-radxBlue h-20 px-6 w-40 rounded-lg border-0 rounded-l-[0]":
+          "text-white text-sm shadow-lg bg-radxBlue h-28 px-4 w-48 rounded-lg border-0 rounded-l-[0]":
             appearance === "slideshow-2",
         }
       )}
