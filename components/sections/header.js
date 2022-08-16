@@ -14,7 +14,7 @@ const Header = ({ data }) => {
     },
     {
       title: "RADx (C)DCC Quarterly Meeting",
-      timeAndDate: "Thursday, August 11, 2022 2:00-3:00 PM ET",
+      timeAndDate: "Thursday, August 25, 2022 2:00-3:00 PM ET",
       body: "The RADx Data Hub Partners and the RADx Coordination and Data Collection Centers meet quarterly to discuss progress and development milestones key to the RADx Data Hub. testing, regulatory affairs, entrepreneurs, and business leaders.",
       image:
         "https://radx-images.s3.amazonaws.com/Rad_X_Event_14_04ed15964d.png",
