@@ -25,7 +25,7 @@ const ButtonContent = ({ button, appearance, compact, img }) => {
         },
         // Specific to when the footer button is fully dark
         {
-          "bg-radxBlue text-white border-radxBlue mb-4 sm:mb-0 py-1 px-2 min-h-[42px] w-40":
+          "bg-radxBlue text-white text-sm border-radxBlue mb-4 sm:mb-0 py-1 px-2 min-h-[42px] w-40":
             appearance === "dark-footer",
         },
         // Specific to when the button is dark outlines

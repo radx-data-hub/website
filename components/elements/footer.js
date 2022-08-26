@@ -12,7 +12,7 @@ const Footer = ({ footer }) => {
           {footer.logo && (
             <NextImage width="120" height="33" media={footer.logo} />
           )}
-          <div className="text-[10px] text-white font-semibold">
+          <div className="text-[10px] text-white text-sm font-semibold mb-4">
             <div>{footer.smallText}</div>
           </div>
         </div>
