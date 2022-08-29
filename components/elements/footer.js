@@ -19,17 +19,19 @@ const Footer = ({ footer }) => {
         <nav className="lg:border-l-2 border-white mb-6 lg:pl-12 flex flex-wrap flex-row lg:gap-20 items-start lg:justify-end ">
           {footer.columns.map((footerColumn) => (
             <div key={footerColumn.id} className="mt-10 lg:mt-0 lg:w-auto">
-              <ul className="flex flex-wrap sm:flex-nowrap">
+              <ul className="">
                 {footerColumn.links.map((link) => (
-                  <li key={link.id} className="pr-6">
-                    <ButtonLink
+                  <li key={link.id} className="pr-6 text-white" 
+                    style={{lineHeight: '1.5', letterSpacing: '0.3px', fontWeight: '300'}}>
+                    {link.text}
+                    {/* <ButtonLink
                       compact={false}
                       appearance={"dark-footer"}
                       button={link}
                       link={link}
                     >
                       {link.text}
-                    </ButtonLink>
+                    </ButtonLink> */}
                   </li>
                 ))}
               </ul>
