@@ -270,6 +270,14 @@ export async function getPageData({ slug, locale, preview }) {
                     title
                     type
                   }
+                  ... on ComponentSectionsLatestUpdates {
+                    id
+                    updateInfo {
+                      title
+                      publishedDate
+                      body
+                    }
+                  }
                 }
               }
             }

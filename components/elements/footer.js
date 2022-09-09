@@ -6,7 +6,7 @@ import ButtonLink from "./button-link"
 
 const Footer = ({ footer }) => {
   return (
-    <footer className="pt-6 bg-coralBlue">
+    <footer className="pt-6 bg-coralBlue-dark">
       <div className="container flex flex-col lg:flex-row lg:justify-between">
         <div>
           {footer.logo && (
