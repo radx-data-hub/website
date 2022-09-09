@@ -6,21 +6,26 @@ const LatestUpdates = ({ data }) => {
   let { updateInfo } = data
 
   return (
-    <div className="prose-lg container">
+    <div className="container">
+      <h1 className="mt-[48px] mb-[8px] text-2xl text-radxBlue font-bold">
+        Latest Updates
+      </h1>
+      <hr className="text-orange border-t-[2px] border-orange mb-[48px]"></hr>
       {updateInfo.map((update) => {
         let d = new Date(update.publishedDate)
         return (
           <div key={update.title}>
-            <h2>
+            <h2 className="mb-2 text-2xl font-bold">
               <a
                 target="_blank"
                 href={`/latest-updates/${update.title.replace(/\s/g, "")}`}
                 rel="noreferrer"
+                className="underline text-radxBlue"
               >
                 {update.title}
               </a>
             </h2>
-            <p>
+            <p className="mb-4">
               Published on{" "}
               <span>
                 {d.toLocaleString("default", {
@@ -30,9 +35,17 @@ const LatestUpdates = ({ data }) => {
                 })}
               </span>
             </p>
-            <Markdown linkTarget="_blank" className="rich-text-additions">
-              {update.body}
-            </Markdown>
+            <div className="mb-8 text-lg">
+              <a
+                target="_blank"
+                href={`/latest-updates/${update.title.replace(/\s/g, "")}`}
+                rel="noreferrer"
+              >
+                <Markdown linkTarget="_blank" className="rich-text-additions">
+                  {`${update.body.slice(0, 220)} ...`}
+                </Markdown>
+              </a>
+            </div>
           </div>
         )
       })}
