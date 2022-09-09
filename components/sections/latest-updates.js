@@ -1,18 +1,22 @@
-import PropTypes from "prop-types";
-import React from "react";
-import Markdown from "react-markdown";
+import PropTypes from "prop-types"
+import React from "react"
+import Markdown from "react-markdown"
 
 const LatestUpdates = ({ data }) => {
-  let { updateInfo } = data;
+  let { updateInfo } = data
 
   return (
     <div className="prose-lg container">
       {updateInfo.map((update) => {
-        let d = new Date(update.publishedDate);
+        let d = new Date(update.publishedDate)
         return (
-          <div>
+          <div key={update.title}>
             <h2>
-              <a target="_blank" href={`/latest-updates/${update.title.replace(/\s/g, '')}`}>
+              <a
+                target="_blank"
+                href={`/latest-updates/${update.title.replace(/\s/g, "")}`}
+                rel="noreferrer"
+              >
                 {update.title}
               </a>
             </h2>
@@ -30,12 +34,12 @@ const LatestUpdates = ({ data }) => {
               {update.body}
             </Markdown>
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-LatestUpdates.propTypes = {};
+LatestUpdates.propTypes = {}
 
-export default LatestUpdates;
+export default LatestUpdates

@@ -1,36 +1,36 @@
-import { getPageData } from "utils/api";
-import { getGlobalData } from "utils/api";
-import Layout from "@/components/layout";
-import Seo from "@/components/elements/seo";
-import { useRouter } from "next/router";
-import Markdown from "react-markdown";
+import { getPageData } from "utils/api"
+import { getGlobalData } from "utils/api"
+import Layout from "@/components/layout"
+import Seo from "@/components/elements/seo"
+import { useRouter } from "next/router"
+import Markdown from "react-markdown"
 
 export default function LatestUpdatePage({ sections, metadata, global }) {
   // Get the path to determine what content to show on the dynamic page
   // We are using the title of the Latest Update to create the path for the page
-  const router = useRouter();
+  const router = useRouter()
   // We are removing /latest-updates/ from the path name and just keeping the title
-  const pagePath = router.asPath.slice(16);
+  const pagePath = router.asPath.slice(16)
 
   // Merge default site SEO settings with page specific SEO settings
   if (metadata.shareImage?.data == null) {
-    delete metadata.shareImage;
+    delete metadata.shareImage
   }
   const metadataWithDefaults = {
     ...global.attributes.metadata,
     ...metadata,
-  };
+  }
 
   // Get the correct update by matching the path to the title of the update
   const updates = sections.filter((section) => {
     return section.__typename === "ComponentSectionsLatestUpdates"
-  });
+  })
 
   let latestUpdate = updates[0].updateInfo.find(
     (update) => update.title.replace(/\s/g, "") === pagePath
-  );
+  )
 
-  let d = new Date(latestUpdate.publishedDate);
+  let d = new Date(latestUpdate.publishedDate)
 
   return (
     <Layout global={global}>
@@ -55,7 +55,7 @@ export default function LatestUpdatePage({ sections, metadata, global }) {
         </Markdown>
       </section>
     </Layout>
-  );
+  )
 }
 
 export async function getStaticProps() {
@@ -63,13 +63,12 @@ export async function getStaticProps() {
     slug: "latest-updates",
     locale: "en",
     preview: false,
-  });
+  })
 
-  const globalLocale = await getGlobalData("en");
+  const globalLocale = await getGlobalData("en")
 
   // We have the required page data, pass it to the page component
-  const { contentSections, metadata, localizations, slug } =
-    pageData.attributes;
+  const { contentSections, metadata, localizations, slug } = pageData.attributes
 
   return {
     props: {
@@ -77,7 +76,7 @@ export async function getStaticProps() {
       metadata,
       global: globalLocale.data,
     },
-  };
+  }
 }
 
 export async function getStaticPaths() {
@@ -85,26 +84,26 @@ export async function getStaticPaths() {
     slug: "latest-updates",
     locale: "en",
     preview: false,
-  });
+  })
 
   // We have the required page data, pass it to the page component
-  const { contentSections } = pageData.attributes;
+  const { contentSections } = pageData.attributes
   const updates = contentSections.filter((section) => {
     return section.__typename === "ComponentSectionsLatestUpdates"
-  });
+  })
 
   const paths = updates[0].updateInfo.map((section) => {
-    let str = section.title.replace(/\s/g, "");
+    let str = section.title.replace(/\s/g, "")
     return {
       params: {
         title: str,
         locale: "en",
       },
-    };
-  });
+    }
+  })
 
   return {
     paths,
     fallback: true,
-  };
+  }
 }
