@@ -22,7 +22,11 @@ export default function LatestUpdatePage({ sections, metadata, global }) {
   };
 
   // Get the correct update by matching the path to the title of the update
-  let latestUpdate = sections[0].updateInfo.find(
+  const updates = sections.filter((section) => {
+    return section.__typename === "ComponentSectionsLatestUpdates"
+  });
+
+  let latestUpdate = updates[0].updateInfo.find(
     (update) => update.title.replace(/\s/g, "") === pagePath
   );
 
@@ -85,8 +89,11 @@ export async function getStaticPaths() {
 
   // We have the required page data, pass it to the page component
   const { contentSections } = pageData.attributes;
+  const updates = contentSections.filter((section) => {
+    return section.__typename === "ComponentSectionsLatestUpdates"
+  });
 
-  const paths = contentSections[0].updateInfo.map((section) => {
+  const paths = updates[0].updateInfo.map((section) => {
     let str = section.title.replace(/\s/g, "");
     return {
       params: {
