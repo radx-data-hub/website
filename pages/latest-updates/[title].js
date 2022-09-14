@@ -38,9 +38,12 @@ export default function LatestUpdatePage({ sections, metadata, global }) {
       <Seo metadata={metadataWithDefaults} />
       {/* Display content sections */}
 
-      <section className="prose-lg  container mt-6">
-        <h1>{latestUpdate.title}</h1>
-        <p>
+      <section className="container mt-6">
+        <h1 className="mt-[48px] mb-[8px] text-3xl text-aquaBlue font-bold">
+          {latestUpdate.title}
+        </h1>
+        <hr className="text-orange border-t-[2px] border-orange mb-2"></hr>
+        <p className="mb-4">
           Published on{" "}
           <span>
             {d.toLocaleString("default", {
@@ -50,9 +53,11 @@ export default function LatestUpdatePage({ sections, metadata, global }) {
             })}
           </span>
         </p>
-        <Markdown linkTarget="_blank" className="rich-text-additions">
-          {latestUpdate.body}
-        </Markdown>
+        <div className="mb-8 text-lg">
+          <Markdown linkTarget="_blank" className="rich-text-additions">
+            {latestUpdate.body}
+          </Markdown>
+        </div>
       </section>
     </Layout>
   )
