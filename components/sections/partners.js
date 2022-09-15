@@ -63,7 +63,7 @@ const resetPartnerLogoTransform = (id, numOfPartners) => {
  *  onLeave of logo - animation is resumed
  */
 const PartnerLogos = ({
-  logos,
+  // logos,
   setTabIndex,
   indexRef,
   setAnimate,
@@ -81,6 +81,13 @@ const PartnerLogos = ({
     setTabIndex(id)
     resetPartnerLogoTransform(id, numOfPartners)
     setCurrentPartner(partners[id])
+  }
+
+  /* This function allows the logos to be keyboard-accessible
+ */
+  const selectContent = index => () => {
+    setTabIndex(index)
+    setCurrentPartner(partners[index])
   }
 
   const onLeave = (e) => {
@@ -104,27 +111,30 @@ const PartnerLogos = ({
       // justify-around
       className="container flex items-center place-content-evenly flex-wrap bg-gray-100 h-auto"
       style={{ minHeight: "120px" }}
+      role="tablist"
     >
-      {logos &&
-        logos.map((logo, idx) => {
+      {partners &&
+        partners.map((partner, idx) => {
+          const logo = partner.imageURL
           return (
-            <div
+            <button
               key={idx}
               className="grow object-scale-down flex items-center"
               style={{ height: "130px", margin: "0px 10px" }}
+              role="tab" aria-selected={indexRef.current === idx ? true : false} aria-controls={`tabpanel-${partner.id}`}
+              onMouseEnter={(e) => onHover(e)} onMouseOut={(e) =>onLeave(e)}
+              onFocus={selectContent(idx)}
             >
               {/* eslint-disable @next/next/no-img-element */}
               <img
-                onMouseEnter={(e) => onHover(e)}
-                onMouseOut={(e) => onLeave(e)}
                 style={{ width: "100%", height: "100%" }}
                 key={idx}
                 id={`logo-${idx}`}
                 className="partnerLogos grow"
                 src={logo}
-                alt=""
+                alt={`${partner.title}-logo`}
               />
-            </div>
+            </button>
           )
         })}
     </div>
@@ -138,10 +148,10 @@ const PartnerLogos = ({
  *     body - Partner description
  */
 const PartnerContent = (params) => {
-  const { title, body } = params.currentPartner
+  const { title, body, id } = params.currentPartner
 
   return (
-    <div id={"partnerContent"} className="flex flex-col partners px-8 pt-8">
+    <div id={"partnerContent"} className="flex flex-col partners px-8 pt-8" role="tabpanel" aria-labelledby={`tabpanel-${id}`} aria-expanded="true" >
       <h2 style={{ color: HIGHLIGHT_TEXT_COLOR, margin: "0" }}>{title}</h2>
       <Markdown className="text-1xl flex-shrink">{body}</Markdown>
     </div>
@@ -219,7 +229,6 @@ const Partners = ({ data }) => {
       className="container sm:prose-md prose-lg flex flex-col mb-4"
     >
       <PartnerLogos
-        logos={partners.map((partner) => partner.imageURL)}
         setTabIndex={setTabIndex}
         tabIndex={tabIndex}
         indexRef={indexRef}
