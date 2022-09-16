@@ -156,7 +156,12 @@ const PartnerContent = (params) => {
   const { title, body, id } = params.currentPartner
 
   return (
-    <div id={"partnerContent"} className="flex flex-col partners px-8 pt-8" role="tabpanel" aria-labelledby={`tabpanel-${id}`} aria-expanded="true" >
+    <div
+      id={"partnerContent"}
+      className="flex flex-col partners px-8 pt-8"
+      role="tabpanel"
+      aria-labelledby={`tabpanel-${id}`}
+    >
       <h2 style={{ color: HIGHLIGHT_TEXT_COLOR, margin: "0" }}>{title}</h2>
       <Markdown className="text-1xl flex-shrink">{body}</Markdown>
     </div>
