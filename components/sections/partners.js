@@ -122,7 +122,11 @@ const PartnerLogos = ({
               key={idx}
               className="grow object-scale-down flex items-center"
               style={{ height: "130px", margin: "0px 10px" }}
-              role="tab" aria-selected={indexRef.current === idx ? true : false} aria-controls={`tabpanel-${partner.id}`}
+              role="tab"
+              aria-selected={indexRef.current === idx ? "true" : "false"}
+              aria-controls={`tabpanel-${partner.id}`}
+              id={`tab-${partner.id}`}
+              tabIndex={indexRef.current === idx ? 0 : -1}
               onMouseEnter={(e) => onHover(e)} onMouseOut={(e) =>onLeave(e)}
               onFocus={selectContent(idx)}
             >
