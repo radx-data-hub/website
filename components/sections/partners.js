@@ -157,7 +157,8 @@ const PartnerContent = (params) => {
 
   return (
     <div
-      id={"partnerContent"}
+      id={"partnerContent"} //for future accessibilty, this id would need to match the label listed by the aria-controls property on line 127 using the code below
+      // id={`tabpanel-${id}`}
       className="flex flex-col partners px-8 pt-8"
       role="tabpanel"
       aria-labelledby={`tabpanel-${id}`}
