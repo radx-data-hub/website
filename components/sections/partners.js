@@ -112,6 +112,7 @@ const PartnerLogos = ({
       className="container flex items-center place-content-evenly flex-wrap bg-gray-100 h-auto"
       style={{ minHeight: "120px" }}
       role="tablist"
+      aria-label="Partners Tabs"
     >
       {partners &&
         partners.map((partner, idx) => {
