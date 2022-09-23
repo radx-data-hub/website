@@ -16,7 +16,7 @@ module.exports = {
         orange: {
           light: "",
           DEFAULT: "#CF6729",
-          dark: "",
+          dark: "#bd5416",
         },
         radxBlue: {
           light: "",
@@ -41,7 +41,7 @@ module.exports = {
         coralBlue: {
           light: "",
           DEFAULT: "#5AA2AC",
-          dark: "",
+          dark: "#387982",
         },
       },
       container: {

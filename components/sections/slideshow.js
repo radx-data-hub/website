@@ -6,7 +6,6 @@ import ButtonLink from "../elements/button-link"
 import Image from "next/image"
 
 const Slideshow = ({ data }) => {
-  console.log(data)
   return (
     <div className={"slide-container " + "relative"}>
       <Fade arrows={false}>

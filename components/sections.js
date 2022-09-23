@@ -11,6 +11,7 @@ import LeadForm from "./sections/lead-form"
 import Slideshow from "./sections/slideshow"
 import Partners from "./sections/partners"
 import Header from "./sections/header"
+import LatestUpdates from "./sections/latest-updates"
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -26,6 +27,7 @@ const sectionComponents = {
   ComponentSectionsSlideshow: Slideshow,
   ComponentSectionsPartnersComponent: Partners,
   ComponentSectionsHeader: Header,
+  ComponentSectionsLatestUpdates: LatestUpdates,
 }
 
 // Display a section individually
