@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-import React from "react";
-import Markdown from "react-markdown";
+import PropTypes from "prop-types"
+import React from "react"
+import Markdown from "react-markdown"
 
 const LatestUpdates = ({ data }) => {
-  let { updateInfo } = data;
+  let { updateInfo } = data
 
   return (
     <div className="container">
@@ -12,7 +12,7 @@ const LatestUpdates = ({ data }) => {
       </h1>
       <hr className="text-orange border-t-[2px] border-orange mb-[48px]"></hr>
       {updateInfo.map((update) => {
-        let d = new Date(update.publishedDate);
+        let d = new Date(update.publishedDate)
         return (
           <div key={update.title} className="mb-6">
             <h2 className="mb-2 text-2xl font-bold">
@@ -55,12 +55,12 @@ const LatestUpdates = ({ data }) => {
               </a>
             </div>
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-LatestUpdates.propTypes = {};
+LatestUpdates.propTypes = {}
 
-export default LatestUpdates;
+export default LatestUpdates
