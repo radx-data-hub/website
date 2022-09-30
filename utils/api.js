@@ -2,7 +2,7 @@ import qs from "qs"
 
 export function getStrapiURL(path) {
   return `${
-    process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://18.206.126.96:1337"
+    process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://18.234.99.120:1337"
   }${path}`
 }
 
