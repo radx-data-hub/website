@@ -5,7 +5,7 @@ import Markdown from "react-markdown"
 // DISPLAY PARTNER LOGOS VIA CAROUSEL ANIMATION
 
 const ANIMATION_TIMER = 10000
-const HIGHLIGHT_TEXT_COLOR = "rgb(90, 162, 172)"
+const HIGHLIGHT_TEXT_COLOR = "#4a66ac"
 
 // NOT CURRENTLY USED
 /* FADE OUT EFFECT FOR CONTENT
@@ -63,7 +63,7 @@ const resetPartnerLogoTransform = (id, numOfPartners) => {
  *  onLeave of logo - animation is resumed
  */
 const PartnerLogos = ({
-  logos,
+  // logos,
   setTabIndex,
   indexRef,
   setAnimate,
@@ -81,6 +81,13 @@ const PartnerLogos = ({
     setTabIndex(id)
     resetPartnerLogoTransform(id, numOfPartners)
     setCurrentPartner(partners[id])
+  }
+
+  /* This function allows the logos to be keyboard-accessible
+ */
+  const selectContent = index => () => {
+    setTabIndex(index)
+    setCurrentPartner(partners[index])
   }
 
   const onLeave = (e) => {
@@ -104,27 +111,35 @@ const PartnerLogos = ({
       // justify-around
       className="container flex items-center place-content-evenly flex-wrap bg-gray-100 h-auto"
       style={{ minHeight: "120px" }}
+      role="tablist"
+      aria-label="Partners Tabs"
     >
-      {logos &&
-        logos.map((logo, idx) => {
+      {partners &&
+        partners.map((partner, idx) => {
+          const logo = partner.imageURL
           return (
-            <div
+            <button
               key={idx}
               className="grow object-scale-down flex items-center"
               style={{ height: "130px", margin: "0px 10px" }}
+              role="tab"
+              aria-selected={indexRef.current === idx ? "true" : "false"}
+              // aria-controls={`tabpanel-${partner.id}`}
+              id={`tab-${partner.id}`}
+              // tabIndex={indexRef.current === idx ? 0 : -1}
+              onMouseEnter={(e) => onHover(e)} onMouseOut={(e) =>onLeave(e)}
+              onFocus={selectContent(idx)}
             >
               {/* eslint-disable @next/next/no-img-element */}
               <img
-                onMouseEnter={(e) => onHover(e)}
-                onMouseOut={(e) => onLeave(e)}
                 style={{ width: "100%", height: "100%" }}
                 key={idx}
                 id={`logo-${idx}`}
                 className="partnerLogos grow"
                 src={logo}
-                alt=""
+                alt={`${partner.title}-logo`}
               />
-            </div>
+            </button>
           )
         })}
     </div>
@@ -138,10 +153,16 @@ const PartnerLogos = ({
  *     body - Partner description
  */
 const PartnerContent = (params) => {
-  const { title, body } = params.currentPartner
+  const { title, body, id } = params.currentPartner
 
   return (
-    <div id={"partnerContent"} className="flex flex-col partners px-8 pt-8">
+    <div
+      id={"partnerContent"} //for future accessibilty, this id would need to match the label listed by the aria-controls property on line 127 using the code below
+      // id={`tabpanel-${id}`}
+      className="flex flex-col partners px-8 pt-8"
+      role="tabpanel"
+      aria-labelledby={`tabpanel-${id}`}
+    >
       <h2 style={{ color: HIGHLIGHT_TEXT_COLOR, margin: "0" }}>{title}</h2>
       <Markdown className="text-1xl flex-shrink">{body}</Markdown>
     </div>
@@ -219,7 +240,6 @@ const Partners = ({ data }) => {
       className="container sm:prose-md prose-lg flex flex-col mb-4"
     >
       <PartnerLogos
-        logos={partners.map((partner) => partner.imageURL)}
         setTabIndex={setTabIndex}
         tabIndex={tabIndex}
         indexRef={indexRef}

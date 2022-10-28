@@ -6,30 +6,30 @@ import ButtonLink from "./button-link"
 
 const Footer = ({ footer }) => {
   return (
-    <footer className="pt-6 bg-coralBlue-dark">
+    <footer className="pt-6 bg-aquaBlue">
       <div className="container flex flex-col lg:flex-row lg:justify-between">
-        <div>
+        <div className="flex flex-col gap-y-2 justify-center items-start">
           {footer.logo && (
             <NextImage width="120" height="33" media={footer.logo} />
           )}
-          <div className="text-[10px] text-white text-sm font-semibold mb-4">
+          <div className="text-[10px] text-white text-sm font-medium mb-4">
             <div>{footer.smallText}</div>
           </div>
         </div>
         <nav className="lg:border-l-2 border-white mb-6 lg:pl-12 flex flex-wrap flex-row lg:gap-20 items-start lg:justify-end ">
           {footer.columns.map((footerColumn) => (
             <div key={footerColumn.id} className="mt-10 lg:mt-0 lg:w-auto">
-              <ul className="flex flex-wrap sm:flex-nowrap">
+              <ul className="">
                 {footerColumn.links.map((link) => (
-                  <li key={link.id} className="pr-6">
-                    <ButtonLink
+                  <li key={link.id} className="pr-6 text-white" >
+                    <CustomLink
                       compact={false}
                       appearance={"dark-footer"}
                       button={link}
                       link={link}
                     >
                       {link.text}
-                    </ButtonLink>
+                    </CustomLink>
                   </li>
                 ))}
               </ul>
