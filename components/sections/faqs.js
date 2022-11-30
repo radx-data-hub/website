@@ -44,6 +44,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }))
 
 export default function Faqs({ data }) {
+    console.log(data)
   const [faqs, setFaqs] = useState([])
   const [expanded, setExpanded] = useState()
 

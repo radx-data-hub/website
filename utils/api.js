@@ -92,6 +92,18 @@ export async function getPageData({ slug, locale, preview }) {
                     }
                   }
                 }
+                faqs {
+                  data {
+                    attributes {
+                      publishedAt
+                      faqs {
+                        answer
+                        question
+                        tag
+                      }
+                    }
+                  }
+                }
                 slug
                 metadata {
                   metaTitle
@@ -297,6 +309,7 @@ export async function getPageData({ slug, locale, preview }) {
   if (pagesData.data?.pages == null || pagesData.data.pages.length === 0) {
     return null
   }
+  console.log(pagesData.data.pages.data[0].attributes.faqs.data)
 
   // Return the first item since there should only be one result per slug
   return pagesData.data.pages.data[0]
