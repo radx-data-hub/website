@@ -2,14 +2,12 @@ import PropTypes from "prop-types"
 import React from "react"
 import Markdown from "react-markdown"
 
-const LatestUpdates = ({ data }) => {
+const HomePageUpdates = ({ data }) => {
   let { updateInfo } = data
 console.log(data)
   return (
     <div className="container">
-      <h1 className="mt-[48px] mb-[8px] text-2xl text-aquaBlue font-bold">
-        Latest Updates
-      </h1>
+        <div classname="border-[2px] border-orange" >
       <hr className="text-orange border-t-[2px] border-orange mb-[48px]"></hr>
       {updateInfo.map((update) => {
         let d = new Date(update.publishedDate)
@@ -57,10 +55,11 @@ console.log(data)
           </div>
         )
       })}
+      </div>
     </div>
   )
 }
 
-LatestUpdates.propTypes = {}
+HomePageUpdates.propTypes = {}
 
-export default LatestUpdates
+export default HomePageUpdates
