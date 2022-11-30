@@ -46,10 +46,10 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 export default function Faqs(props) {
   const [faqs, setFaqs] = useState([])
   const [expanded, setExpanded] = useState()
-  let ifError;
-  let ifError2;
 
   useEffect(() => {
+    let ifError
+    let ifError2
     async function getFaqs() {
       const res = await fetch("https://18.234.99.120:1337/api/faqs?populate=*")
       const faqsData = await res.json()
@@ -64,7 +64,8 @@ export default function Faqs(props) {
       .then((res) => {
         const newState = separateObject(res)
         setFaqs(newState)
-      }).catch((err)=>{
+      })
+      .catch((err) => {
         console.log(err)
         ifError = groupByTag(props.pageContext.faqs.data, "tag")
         ifError2 = separateObject(ifError)
