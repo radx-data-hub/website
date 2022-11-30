@@ -43,8 +43,8 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }))
 
-export default function Faqs({ data }) {
-    console.log(data)
+export default function Faqs(props) {
+  console.log(props.pageContext.faqs)
   const [faqs, setFaqs] = useState([])
   const [expanded, setExpanded] = useState()
 
@@ -52,31 +52,10 @@ export default function Faqs({ data }) {
     async function getFaqs() {
       const res = await fetch("http://18.234.99.120:1337/api/faqs?populate=*")
       const faqsData = await res.json()
-      return faqsData
-    }
 
-    // Split the array into separate objects by the tag property
-    function groupByTag(arr, property) {
-      return arr.reduce(function (memo, x) {
-        if (!memo[x.attributes.faqs[property]]) {
-          memo[x.attributes.faqs[property]] = []
-        }
-        memo[x.attributes.faqs[property]].push(x)
-        return memo
-      }, {})
-    }
-
-    // Split the object into an array with an object for each tag with the associated faqs to that tag
-    const separateObject = (obj) => {
-      const res = []
-      const keys = Object.keys(obj)
-      keys.forEach((key) => {
-        res.push({
-          key: key,
-          data: obj[key],
-        })
-      })
-      return res
+      // Temporary check for API error
+      let output = faqsData ? faqsData : props.pageContext.faqs
+      return output
     }
 
     getFaqs()
@@ -87,10 +66,34 @@ export default function Faqs({ data }) {
         const newState = separateObject(res)
         setFaqs(newState)
       })
-  }, [])
+  }, [props.pageContext.faqs])
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false)
+  }
+
+  // Split the array into separate objects by the tag property
+  function groupByTag(arr, property) {
+    return arr.reduce(function (memo, x) {
+      if (!memo[x.attributes.faqs[property]]) {
+        memo[x.attributes.faqs[property]] = []
+      }
+      memo[x.attributes.faqs[property]].push(x)
+      return memo
+    }, {})
+  }
+
+  // Split the object into an array with an object for each tag with the associated faqs to that tag
+  const separateObject = (obj) => {
+    const res = []
+    const keys = Object.keys(obj)
+    keys.forEach((key) => {
+      res.push({
+        key: key,
+        data: obj[key],
+      })
+    })
+    return res
   }
 
   return (
