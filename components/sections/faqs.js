@@ -6,7 +6,6 @@ import MuiAccordionSummary from "@mui/material/AccordionSummary"
 import MuiAccordionDetails from "@mui/material/AccordionDetails"
 import Typography from "@mui/material/Typography"
 import Markdown from "react-markdown"
-import { getStrapiApiPageData } from "utils/api"
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -49,11 +48,10 @@ export default function Faqs({ data }) {
   const [expanded, setExpanded] = useState()
 
   useEffect(() => {
-
     async function getFaqs() {
-        const res = await fetch("http://18.234.99.120:1337/api/faqs?populate=*");
-        const faqsData = await res.json()
-        return faqsData;
+      const res = await fetch("http://18.234.99.120:1337/api/faqs?populate=*")
+      const faqsData = await res.json()
+      return faqsData
     }
 
     // Split the array into separate objects by the tag property
@@ -67,6 +65,7 @@ export default function Faqs({ data }) {
       }, {})
     }
 
+    // Split the object into an array with an object for each tag with the associated faqs to that tag
     const separateObject = (obj) => {
       const res = []
       const keys = Object.keys(obj)
@@ -79,22 +78,14 @@ export default function Faqs({ data }) {
       return res
     }
 
-    getFaqs().then(faqs => {
-        console.log(faqs.data)
+    getFaqs()
+      .then((faqs) => {
         return groupByTag(faqs.data, "tag")
-      }).then((res)=>{
-        console.log(res)
-      });
-
-    // getStrapiApiPageData("resources/faqs")
-    //   .then((res) => {
-    //     // console.log(res)
-    //     return groupByTag(res.contentSections[2].question, "tag")
-    //   })
-    //   .then((res) => {
-    //     const newState = separateObject(res)
-    //     setFaqs(newState)
-    //   })
+      })
+      .then((res) => {
+        const newState = separateObject(res)
+        setFaqs(newState)
+      })
   }, [])
 
   const handleChange = (panel) => (event, newExpanded) => {
@@ -102,7 +93,9 @@ export default function Faqs({ data }) {
   }
 
   return (
-    <div className="container">
+    <div className="container mt-12">
+      <h2 className="mb-[8px] text-[#4a66ac] font-bold text-2xl">FAQs</h2>
+      <hr className="text-orange border-t-[2px] border-orange mb-12"></hr>
       {faqs.map((faq, i) => {
         return (
           <div
@@ -116,7 +109,7 @@ export default function Faqs({ data }) {
               style={{
                 textAlign: "center",
                 fontSize: "1.8rem",
-                backgroundColor: "#532565",
+                backgroundColor: "#4b66ac",
                 color: "white",
                 padding: "0.9rem 0",
               }}
@@ -128,21 +121,27 @@ export default function Faqs({ data }) {
             {faq.data.map((question, i) => {
               return (
                 <Accordion
-                  expanded={expanded === "panel" + i + question.question}
-                  onChange={handleChange("panel" + i + question.question)}
+                  expanded={
+                    expanded === "panel" + i + question.attributes.faqs.question
+                  }
+                  onChange={handleChange(
+                    "panel" + i + question.attributes.faqs.question
+                  )}
                   style={{ backgroundColor: "#e5e0e7" }}
-                  key={question.question + i}
+                  key={question.attributes.faqs.question + i}
                 >
                   <AccordionSummary
-                    aria-controls={"panel" + i + question.question}
-                    id={"panel" + i + question.question}
+                    aria-controls={
+                      "panel" + i + question.attributes.faqs.question
+                    }
+                    id={"panel" + i + question.attributes.faqs.question}
                   >
-                    <Typography>{question.question}</Typography>
+                    <Typography>{question.attributes.faqs.question}</Typography>
                   </AccordionSummary>
                   <AccordionDetails style={{ backgroundColor: "#fff" }}>
                     <Typography component={"span"}>
                       <Markdown className="faq-markdown">
-                        {question.answerFAQ}
+                        {question.attributes.faqs.answer}
                       </Markdown>
                     </Typography>
                   </AccordionDetails>
