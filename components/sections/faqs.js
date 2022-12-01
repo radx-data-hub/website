@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { styled } from "@mui/material/styles"
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp"
+import AddIcon from "@mui/icons-material/Add"
 import MuiAccordion from "@mui/material/Accordion"
 import MuiAccordionSummary from "@mui/material/AccordionSummary"
 import MuiAccordionDetails from "@mui/material/AccordionDetails"
-import Typography from "@mui/material/Typography"
 import Markdown from "react-markdown"
 
 const Accordion = styled((props) => (
@@ -21,17 +20,13 @@ const Accordion = styled((props) => (
 
 const AccordionSummary = styled((props) => (
   <MuiAccordionSummary
-    expandIcon={
-      <ArrowForwardIosSharpIcon
-        sx={{ fontSize: "2rem", paddingLeft: "10px" }}
-      />
-    }
+    expandIcon={<AddIcon sx={{ fontSize: "2rem", paddingLeft: "10px" }} />}
     {...props}
   />
 ))(({ theme }) => ({
-  flexDirection: "row-reverse",
+  flexDirection: "row",
   "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-    transform: "rotate(90deg)",
+    transform: "rotate(45deg)",
   },
   "& .MuiAccordionSummary-content": {
     marginLeft: theme.spacing(1),
@@ -39,7 +34,7 @@ const AccordionSummary = styled((props) => (
 }))
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: "3rem 2.6rem",
+  padding: "1.6rem 2rem",
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }))
 
@@ -102,9 +97,9 @@ export default function Faqs(props) {
   }
 
   return (
-    <div className="container mt-12">
-      <h2 className="mb-[8px] text-[#4a66ac] font-bold text-2xl">FAQs</h2>
-      <hr className="text-orange border-t-[2px] border-orange mb-12"></hr>
+    <div className="container mt-12 mb-6 ">
+      {/* <h2 className="mb-[8px] text-[#4a66ac] font-bold text-2xl">FAQs</h2>
+      <hr className="text-orange border-t-[2px] border-orange mb-12"></hr> */}
       {faqs.map((faq, i) => {
         return (
           <div
@@ -117,15 +112,16 @@ export default function Faqs(props) {
             <div
               style={{
                 textAlign: "center",
-                fontSize: "1.8rem",
-                backgroundColor: "#4b66ac",
+                fontSize: "1.6rem",
+                backgroundColor: "rgb(56 121 130)",
                 color: "white",
-                padding: "0.9rem 0",
+                padding: "0.5rem 0",
+                marginBottom: "15px",
               }}
             >
-              <h1 style={{ fontWeight: "300" }}>
+              <h2 style={{ fontWeight: "500" }}>
                 {faq.key !== "null" ? faq.key : "FAQs"}
-              </h1>
+              </h2>
             </div>
             {faq.data.map((question, i) => {
               return (
@@ -136,7 +132,10 @@ export default function Faqs(props) {
                   onChange={handleChange(
                     "panel" + i + question.attributes.faqs.question
                   )}
-                  style={{ backgroundColor: "#e5e0e7" }}
+                  style={{
+                    backgroundColor: "rgb(146 160 182 / 8%)",
+                    marginBottom: "15px",
+                  }}
                   key={question.attributes.faqs.question + i}
                 >
                   <AccordionSummary
@@ -145,14 +144,14 @@ export default function Faqs(props) {
                     }
                     id={"panel" + i + question.attributes.faqs.question}
                   >
-                    <Typography>{question.attributes.faqs.question}</Typography>
+                    <div>{question.attributes.faqs.question}</div>
                   </AccordionSummary>
                   <AccordionDetails style={{ backgroundColor: "#fff" }}>
-                    <Typography component={"span"}>
+                    <span>
                       <Markdown className="faq-markdown">
                         {question.attributes.faqs.answer}
                       </Markdown>
-                    </Typography>
+                    </span>
                   </AccordionDetails>
                 </Accordion>
               )
