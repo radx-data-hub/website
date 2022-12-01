@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { styled } from "@mui/material/styles"
 import AddIcon from "@mui/icons-material/Add"
+import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp"
 import MuiAccordion from "@mui/material/Accordion"
 import MuiAccordionSummary from "@mui/material/AccordionSummary"
 import MuiAccordionDetails from "@mui/material/AccordionDetails"
@@ -20,13 +21,15 @@ const Accordion = styled((props) => (
 
 const AccordionSummary = styled((props) => (
   <MuiAccordionSummary
-    expandIcon={<AddIcon sx={{ fontSize: "2rem", paddingLeft: "10px" }} />}
+    expandIcon={
+      <ArrowForwardIosSharpIcon sx={{ fontSize: "1.6rem", color: "#cf6729" }} />
+    }
     {...props}
   />
 ))(({ theme }) => ({
-  flexDirection: "row",
+  flexDirection: "row-reverse",
   "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-    transform: "rotate(45deg)",
+    transform: "rotate(90deg)",
   },
   "& .MuiAccordionSummary-content": {
     marginLeft: theme.spacing(1),
@@ -34,7 +37,7 @@ const AccordionSummary = styled((props) => (
 }))
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: "1.6rem 2rem",
+  padding: "1rem 2rem",
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }))
 
@@ -116,7 +119,6 @@ export default function Faqs(props) {
                 backgroundColor: "rgb(56 121 130)",
                 color: "white",
                 padding: "0.5rem 0",
-                marginBottom: "15px",
               }}
             >
               <h2 style={{ fontWeight: "500" }}>
@@ -133,12 +135,19 @@ export default function Faqs(props) {
                     "panel" + i + question.attributes.faqs.question
                   )}
                   style={{
-                    backgroundColor: "rgb(146 160 182 / 8%)",
                     marginBottom: "15px",
+                    fontSize: "20px",
+                    borderLeft: "none",
+                    borderRight: "none",
+                    borderTop: "none",
+                    borderBottom: "2px solid #cf6729",
                   }}
                   key={question.attributes.faqs.question + i}
                 >
                   <AccordionSummary
+                    style={{
+                      padding: "0",
+                    }}
                     aria-controls={
                       "panel" + i + question.attributes.faqs.question
                     }
@@ -147,10 +156,12 @@ export default function Faqs(props) {
                     <div>{question.attributes.faqs.question}</div>
                   </AccordionSummary>
                   <AccordionDetails style={{ backgroundColor: "#fff" }}>
-                    <span>
-                      <Markdown className="faq-markdown">
-                        {question.attributes.faqs.answer}
-                      </Markdown>
+                    <span
+                      style={{
+                        fontSize: "1.1rem",
+                      }}
+                    >
+                      <Markdown>{question.attributes.faqs.answer}</Markdown>
                     </span>
                   </AccordionDetails>
                 </Accordion>
