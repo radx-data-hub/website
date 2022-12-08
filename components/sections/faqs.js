@@ -163,7 +163,12 @@ export default function Faqs(props) {
                         fontSize: "1.1rem",
                       }}
                     >
-                      <Markdown>{question.attributes.faqs.answer}</Markdown>
+                      <Markdown
+                        linkTarget="_blank"
+                        className="rich-text-additions"
+                      >
+                        {question.attributes.faqs.answer}
+                      </Markdown>
                     </span>
                   </AccordionDetails>
                 </Accordion>
