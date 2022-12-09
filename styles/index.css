@@ -112,6 +112,10 @@ html {
   margin-bottom: 20px;
 }
 
+.rich-text-additions ul li {
+  margin-left: 2rem;
+}
+
 .event-card a {
   color: #243D7E;
   font-weight: bold;
