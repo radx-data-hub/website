@@ -108,6 +108,10 @@ html {
   margin-top: 0;
 }
 
+.rich-text-additions p {
+  margin-bottom: 20px;
+}
+
 .event-card a {
   color: #243D7E;
   font-weight: bold;
