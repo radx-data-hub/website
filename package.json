@@ -11,6 +11,10 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.16",
     "@tailwindcss/typography": "^0.4.1",
     "classnames": "^2.2.6",
     "cookie": "^0.4.1",

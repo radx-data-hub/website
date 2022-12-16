@@ -4,7 +4,7 @@ import Markdown from "react-markdown"
 
 const LatestUpdates = ({ data }) => {
   let { updateInfo } = data
-
+  console.log(data)
   return (
     <div className="container">
       <h1 className="mt-[48px] mb-[8px] text-2xl text-aquaBlue font-bold">

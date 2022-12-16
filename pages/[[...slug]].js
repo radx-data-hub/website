@@ -37,7 +37,11 @@ const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
       {/* Add meta tags for SEO*/}
       <Seo metadata={metadataWithDefaults} />
       {/* Display content sections */}
-      <Sections sections={sections} preview={preview} />
+      <Sections
+        sections={sections}
+        preview={preview}
+        pageContext={pageContext}
+      />
     </Layout>
   )
 }
@@ -88,7 +92,8 @@ export async function getStaticProps(context) {
   }
 
   // We have the required page data, pass it to the page component
-  const { contentSections, metadata, localizations, slug } = pageData.attributes
+  const { contentSections, metadata, localizations, slug, faqs } =
+    pageData.attributes
 
   const pageContext = {
     locale,
@@ -96,6 +101,7 @@ export async function getStaticProps(context) {
     defaultLocale,
     slug,
     localizations,
+    faqs,
   }
 
   const localizedPaths = getLocalizedPaths(pageContext)
