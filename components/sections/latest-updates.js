@@ -4,7 +4,6 @@ import Markdown from "react-markdown"
 
 const LatestUpdates = ({ data }) => {
   let { updateInfo } = data
-  console.log(data)
   return (
     <div className="container">
       <h1 className="mt-[48px] mb-[8px] text-2xl text-aquaBlue font-bold">
@@ -17,7 +16,6 @@ const LatestUpdates = ({ data }) => {
           <div key={update.title} className="mb-6">
             <h2 className="mb-2 text-2xl font-bold">
               <a
-                target="_blank"
                 href={`/latest-updates/${update.title.replace(/\s/g, "")}`}
                 rel="noreferrer"
                 className="underline text-radxBlue"
