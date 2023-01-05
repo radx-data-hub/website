@@ -30,6 +30,7 @@ const LatestUpdates = ({ data }) => {
                   weekday: "long",
                   day: "numeric",
                   month: "long",
+                  year: "numeric",
                 })}
               </span>
             </p>
