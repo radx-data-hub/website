@@ -6,9 +6,9 @@ import EventCard from "../elements/event/event-card"
 const Header = ({ data }) => {
   let dummyData = [
     {
-      title: "Ongoing",
-      timeAndDate: "",
-      body: "The RADx Data Hub Partners hold individual and small-group introduction sessions with early adopters and testers of the RADx Data Hub. To schedule one of these sessions, [please contact us](https://docs.google.com/forms/d/11x_ToM6Fe4x-llcZqkZbW283NqiG8g_Oe5ApXBKvxPc/viewform?edit_requested=true).",
+      title: "RADx Data Hub Tour",
+      timeAndDate: "Monday, January 23, 2023 1:00-2:00 PM ET",
+      body: "The National Institutes of Health (NIH) Rapid Acceleration of Diagnostics Data Hub (RADx® Data Hub) cloud-enabled platform is now open to researchers. [The RADx Data Hub](https://radx-hub.nih.gov/) represents one of the largest collections of NIH COVID data available to researchers that allows researchers to explore, access, and analyze COVID-related data developed through [NIH RADx program initiatives](https://www.nih.gov/research-training/medical-research-initiatives/radx/radx-programs). In December, NIH released two new Notices of Special Interest ([NOT-OD-23-040](https://grants.nih.gov/grants/guide/notice-files/NOT-OD-23-040.html) and [NOT-OD-23-041](https://grants.nih.gov/grants/guide/notice-files/NOT-OD-23-041.html)) that support scientific inquiry using existing data resources in the RADx Data Hub. \n \n On January 23, 2023 from 1:00-2:00 p.m. Eastern Time, researchers are invited to [tour the RADx Data Hub](https://renci.zoom.us/webinar/register/WN_L1FMUEp6QMSjlipjrzCPXg). This tour will feature an overview of the RADx Data Hub program and its portfolio, a demonstration of RADx Data Hub capabilities, and an open question and answer session. The webinar will be recorded and made available to those who register for it.",
       image:
         "https://radx-images.s3.amazonaws.com/Rad_X_Calendar_8be31c46d5.png?updated_at=2022-06-28T17:58:21.536Z",
     },
@@ -32,6 +32,13 @@ const Header = ({ data }) => {
       title: "RADx (C)DCC Kick-off Meeting",
       timeAndDate: "Thursday, February 17, 2022 2:00-3:00 PM ET",
       body: "The purpose of this meeting is to kick off the RADx Data Hub under the direction of a new team, the RADx Data Hub Partners (RADx DHP), allowing this new team and the RADx (C)DCCs to get to know one another and begin building community. This meeting will include formal introductions of the RADx DHP and RADx program (C)DCCs, a RADx program status update from the NIH perspective, and an overview of RADx DHP visions and goals.",
+      image:
+        "https://radx-images.s3.amazonaws.com/Rad_X_Event_14_04ed15964d.png",
+    },
+    {
+      title: "RADx (C)DCC Quarterly Meeting",
+      timeAndDate: "Thursday, August 25, 2022 2:00-3:00 PM ET",
+      body: "The RADx Data Hub Partners and the RADx Coordination and Data Collection Centers meet quarterly to discuss progress and development milestones key to the RADx Data Hub. testing, regulatory affairs, entrepreneurs, and business leaders.",
       image:
         "https://radx-images.s3.amazonaws.com/Rad_X_Event_14_04ed15964d.png",
     },

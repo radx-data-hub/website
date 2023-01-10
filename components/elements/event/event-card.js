@@ -14,10 +14,12 @@ const EventCard = ({ data }) => {
           alt={"RADx Event Image"}
         />
       </div>
-      <div className="md:w-[80%]">
+      <div className="md:w-[80%]" style={{ whiteSpace: "break-spaces" }}>
         <h2 className="text-coralBlue text-2xl font-bold">{data.title}</h2>
         <h3 className="text-base font-bold mb-5">{data.timeAndDate}</h3>
-        <Markdown className="text-lg event-card">{data.body}</Markdown>
+        <Markdown linkTarget="_blank" className="text-lg event-card">
+          {data.body}
+        </Markdown>
       </div>
     </div>
   )
