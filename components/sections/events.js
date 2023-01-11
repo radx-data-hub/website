@@ -14,8 +14,20 @@ const Events = ({ data }) => {
     const pastEvents = data.eventData.filter(
       (event) => new Date(event.timeAndDate) < new Date()
     )
-    setUpcomingEvents(upcomingEvents)
-    setPastEvents(pastEvents)
+    setUpcomingEvents(
+      upcomingEvents.sort(function (a, b) {
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return new Date(b.timeAndDate) - new Date(a.timeAndDate)
+      })
+    )
+    setPastEvents(
+      pastEvents.sort(function (a, b) {
+        // Turn your strings into dates, and then subtract them
+        // to get a value that is either negative, positive, or zero.
+        return new Date(b.timeAndDate) - new Date(a.timeAndDate)
+      })
+    )
   }, [data.eventData])
 
   return (
