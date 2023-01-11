@@ -14,6 +14,7 @@ import Header from "./sections/header"
 import LatestUpdates from "./sections/latest-updates"
 import HomePageUpdates from "./sections/homepage-updates"
 import Faqs from "./sections/faqs"
+import Events from "./sections/events"
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -29,6 +30,7 @@ const sectionComponents = {
   ComponentSectionsSlideshow: Slideshow,
   ComponentSectionsPartnersComponent: Partners,
   ComponentSectionsHeader: Header,
+  ComponentSectionsEvents: Events,
   ComponentSectionsLatestUpdates: LatestUpdates,
   ComponentSectionsFaqs: Faqs,
 }

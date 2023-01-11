@@ -290,6 +290,17 @@ export async function getPageData({ slug, locale, preview }) {
                       body
                     }
                   }
+                  ... on ComponentSectionsEvents {
+                    id
+                    eventData {
+                      title
+                      image {
+                        ...FileParts
+                      }
+                      body
+                      timeAndDate
+                    }
+                  }
                 }
               }
             }
