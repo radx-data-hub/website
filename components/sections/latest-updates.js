@@ -34,14 +34,14 @@ const LatestUpdates = ({ data }) => {
                 })}
               </span>
             </p>
-            <div className="mb-8 text-lg">
+            <div className="mb-4 text-lg">
               <a
                 target="_blank"
                 href={`/latest-updates/${update.title.replace(/\s/g, "")}`}
                 rel="noreferrer"
               >
                 <div style={{ height: "120px" }}>
-                  <div style={{ height: "91px", overflow: "hidden" }}>
+                  <div style={{ height: "51px", overflow: "hidden" }}>
                     <Markdown
                       linkTarget="_blank"
                       className="rich-text-additions"
