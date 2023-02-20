@@ -43,6 +43,21 @@ information.
 
 ## Installation
 
-1. Move into profect folder
+1. Move into project folder
 2. Run npm install
 3. Run npm run dev
+
+## Deployment with Docker
+
+A Dockerfile exists to handle the production deployment for this frontend application.
+Commands for deployment might look something like the following:
+
+**build**:
+```bash
+docker build -t radx-website-client:latest .
+```
+
+**run**:
+```bash
+docker run --rm -p 80:3000 radx-website-client:latest
+```
