@@ -4,7 +4,6 @@ import Markdown from "react-markdown"
 
 const LatestUpdates = ({ data }) => {
   let { updateInfo } = data
-
   return (
     <div className="container">
       <h1 className="mt-[48px] mb-[8px] text-2xl text-aquaBlue font-bold">
@@ -14,10 +13,9 @@ const LatestUpdates = ({ data }) => {
       {updateInfo.map((update) => {
         let d = new Date(update.publishedDate)
         return (
-          <div key={update.title}>
+          <div key={update.title} className="mb-6">
             <h2 className="mb-2 text-2xl font-bold">
               <a
-                target="_blank"
                 href={`/latest-updates/${update.title.replace(/\s/g, "")}`}
                 rel="noreferrer"
                 className="underline text-radxBlue"
@@ -32,18 +30,27 @@ const LatestUpdates = ({ data }) => {
                   weekday: "long",
                   day: "numeric",
                   month: "long",
+                  year: "numeric",
                 })}
               </span>
             </p>
-            <div className="mb-8 text-lg">
+            <div className="mb-4 text-lg">
               <a
                 target="_blank"
                 href={`/latest-updates/${update.title.replace(/\s/g, "")}`}
                 rel="noreferrer"
               >
-                <Markdown linkTarget="_blank" className="rich-text-additions">
-                  {`${update.body.slice(0, 220)} ...`}
-                </Markdown>
+                <div style={{ height: "120px" }}>
+                  <div style={{ height: "51px", overflow: "hidden" }}>
+                    <Markdown
+                      linkTarget="_blank"
+                      className="rich-text-additions"
+                    >
+                      {`${update.body} ...`}
+                    </Markdown>
+                  </div>
+                  ...
+                </div>
               </a>
             </div>
           </div>

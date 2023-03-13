@@ -12,6 +12,9 @@ import Slideshow from "./sections/slideshow"
 import Partners from "./sections/partners"
 import Header from "./sections/header"
 import LatestUpdates from "./sections/latest-updates"
+import HomePageUpdates from "./sections/homepage-updates"
+import Faqs from "./sections/faqs"
+import Events from "./sections/events"
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -27,20 +30,21 @@ const sectionComponents = {
   ComponentSectionsSlideshow: Slideshow,
   ComponentSectionsPartnersComponent: Partners,
   ComponentSectionsHeader: Header,
+  ComponentSectionsEvents: Events,
   ComponentSectionsLatestUpdates: LatestUpdates,
+  ComponentSectionsFaqs: Faqs,
 }
 
 // Display a section individually
-const Section = ({ sectionData }) => {
+const Section = ({ sectionData, pageContext }) => {
   // Prepare the component
   const SectionComponent = sectionComponents[sectionData.__typename]
 
   if (!SectionComponent) {
     return null
   }
-
   // Display the section
-  return <SectionComponent data={sectionData} />
+  return <SectionComponent data={sectionData} pageContext={pageContext} />
 }
 
 const PreviewModeBanner = () => {
@@ -65,7 +69,7 @@ const PreviewModeBanner = () => {
 }
 
 // Display the list of sections
-const Sections = ({ sections, preview }) => {
+const Sections = ({ sections, preview, pageContext }) => {
   return (
     <div className="flex flex-col">
       {/* Show a banner if preview mode is on */}
@@ -75,6 +79,7 @@ const Sections = ({ sections, preview }) => {
         <Section
           sectionData={section}
           key={`${section.__typename}${section.id}`}
+          pageContext={pageContext}
         />
       ))}
     </div>
