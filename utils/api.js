@@ -2,7 +2,7 @@ import qs from "qs"
 
 export function getStrapiURL(path) {
   return `${
-    process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://18.206.126.96:1337"
+    process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://18.234.99.120:1337"
   }${path}`
 }
 
@@ -89,6 +89,18 @@ export async function getPageData({ slug, locale, preview }) {
                     id
                     attributes {
                       locale
+                    }
+                  }
+                }
+                faqs {
+                  data {
+                    attributes {
+                      publishedAt
+                      faqs {
+                        answer
+                        question
+                        tag
+                      }
                     }
                   }
                 }
@@ -270,6 +282,25 @@ export async function getPageData({ slug, locale, preview }) {
                     title
                     type
                   }
+                  ... on ComponentSectionsLatestUpdates {
+                    id
+                    updateInfo {
+                      title
+                      publishedDate
+                      body
+                    }
+                  }
+                  ... on ComponentSectionsEvents {
+                    id
+                    eventData {
+                      title
+                      image {
+                        ...FileParts
+                      }
+                      body
+                      timeAndDate
+                    }
+                  }
                 }
               }
             }
@@ -289,6 +320,7 @@ export async function getPageData({ slug, locale, preview }) {
   if (pagesData.data?.pages == null || pagesData.data.pages.length === 0) {
     return null
   }
+  console.log(pagesData.data.pages.data[0].attributes.faqs.data)
 
   // Return the first item since there should only be one result per slug
   return pagesData.data.pages.data[0]
