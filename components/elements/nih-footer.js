@@ -37,20 +37,28 @@ const NIHFooter = () => {
             </div>
           </Col>
           <Col xs={12} sm={12} md={6} lg={3}>
+            <CustomLink id={1} link={{url: '/contact'}}>
               <div>
                 Contact
               </div>
+            </CustomLink>
+            <CustomLink id={2} link={{url: '/faqs'}}>
               <div>
                 FAQ
               </div>
+            </CustomLink>
           </Col>
           <Col xs={12} sm={12} md={6} lg={3}>
+            <CustomLink id={3} link={{url: 'https://www.nih.gov/research-training/medical-research-initiatives/radx'}}>
               <div>
                 RADx Program Website
               </div>
+            </CustomLink>
+            <CustomLink id={4} link={{url: 'https://www.hhs.gov/vulnerability-disclosure-policy/index.html'}}>
               <div>
                 HHS Vulnerability Disclosure
               </div>
+            </CustomLink>  
           </Col>
         </Row>
       </Container>
