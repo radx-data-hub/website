@@ -9,7 +9,6 @@ import { getGlobalData } from "utils/api"
 import "@/styles/index.css"
 import Script from "next/script"
 import * as gtag from "../lib/gtag"
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter()
