@@ -4,6 +4,8 @@ import CustomLink from "./custom-link"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitterSquare, faFacebookSquare, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons'
 
 const NIHFooter = () => {
   return (
@@ -21,9 +23,23 @@ const NIHFooter = () => {
             <div>
               Connect with NIH
             </div>
-            <div>
-              social-media-links
-            </div>
+            <Row>
+              <Col xs={2} sm={2} md={2} lg={2}>
+                <CustomLink link={{url: 'https://twitter.com/NIH', id:'1'}}>
+                  <FontAwesomeIcon icon={faTwitterSquare}/>
+                </CustomLink>
+              </Col>
+              <Col xs={2} sm={2} md={2} lg={2}>
+                <CustomLink link={{url: 'https://www.facebook.com/nih.gov', id:'1'}}>
+                  <FontAwesomeIcon icon={faFacebookSquare}/>
+                </CustomLink>
+              </Col>
+              <Col xs={2} sm={2} md={2} lg={2}>
+                <CustomLink link={{url: 'https://www.youtube.com/user/NIHOD', id:'1'}}>
+                  <FontAwesomeIcon icon={faYoutubeSquare}/>
+                </CustomLink>
+              </Col>
+            </Row>
           </Col>
           <Col xs={12} sm={12} md={6} lg={3}>
             <div>
