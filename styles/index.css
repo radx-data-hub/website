@@ -143,3 +143,12 @@ html {
 
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.2); }
+
+footer a {
+  text-decoration: none !important;
+  color: inherit;
+}
+footer a:hover {
+  text-decoration: underline !important;
+  color: inherit;
+}
