@@ -62,11 +62,11 @@ const NihNavbar = ({ navbar, pageContext }) => {
               width: "180px",
               color: "#63656a",
               position: "absolute",
-              top: "58px",
+              top: "60px",
               left: "103px",
               fontWeight: "bold",
-              fontStyle: "italic",
-              fontSize: ".8em"
+              fontSize: ".8em",
+              transform: "skewX(-14deg)"
             }}
           >
             COVID RADx Data Hub
