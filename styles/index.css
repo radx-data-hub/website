@@ -160,3 +160,11 @@ footer a:hover {
   .nav-links {
     border-bottom: 4px solid #fff!important;
     }
+
+.show {
+  /* z-index: 2 !important; */
+  /* width: 100% !important; */
+  /* background: white !important; */
+  /* margin-top: -30px !important; */
+  /* padding-left: 15px; */
+}

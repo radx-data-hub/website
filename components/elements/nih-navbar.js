@@ -12,14 +12,14 @@ import {
   faCalendar,
   faBullhorn,
   faClipboardQuestion,
-  faPeopleGroup
+  faCircleInfo
 } from "@fortawesome/free-solid-svg-icons";
 
 const NihNavbar = ({ navbar, pageContext }) => {
   const chooseIcon = (index) => {
     switch (index) {
       case 0:
-        return faPeopleGroup;
+        return faCircleInfo;
       case 1:
         return faCalendar;
       case 2:
@@ -37,13 +37,13 @@ const NihNavbar = ({ navbar, pageContext }) => {
       style={{
         background: "#fff",
         boxShadow: "0 7px 7px -10px rgba(0,0,0,.6)",
-        height: "96px",
+        margin: 0
       }}
       collapseOnSelect
       expand="lg"
       variant="light"
     >
-      <Container style={{ margin: 0, paddingLeft: "5px", paddingTop: "13px" }}>
+      <Container>
         <Navbar.Brand href="#home">
           <Link href="/">
             <a>
@@ -77,7 +77,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
               </Nav.Item>
             ))}
           </Nav>
-          <Nav style={{ marginRight: "-155px" }}>
+          <Nav >
             <Nav.Link
               style={{
                 color: "#007cba",

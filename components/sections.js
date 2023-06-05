@@ -15,6 +15,7 @@ import LatestUpdates from "./sections/latest-updates"
 import HomePageUpdates from "./sections/homepage-updates"
 import Faqs from "./sections/faqs"
 import Events from "./sections/events"
+import TripleCard from "./sections/triple-card"
 
 // Map Strapi sections to section components
 const sectionComponents = {
@@ -33,6 +34,7 @@ const sectionComponents = {
   ComponentSectionsEvents: Events,
   ComponentSectionsLatestUpdates: LatestUpdates,
   ComponentSectionsFaqs: Faqs,
+  ComponentSectionsTripleCard: TripleCard,
 }
 
 // Display a section individually
