@@ -56,11 +56,26 @@ const NihNavbar = ({ navbar, pageContext }) => {
               <NextImage width="360" height="99" media={navbar.logo} />
             </a>
           </Link>
+          <span
+            style={{
+              display: "inline-block",
+              width: "180px",
+              color: "#63656a",
+              position: "absolute",
+              top: "60px",
+              left: "103px",
+              fontWeight: "bold",
+              fontStyle: "italic",
+              fontSize: ".9em"
+            }}
+          >
+            COVID RADx Data Hub
+          </span>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav style={{marginLeft: "auto !important"}}>
+          <Nav style={{ marginLeft: "auto !important" }}>
             {navbar.links.map((navLink, i) => (
               <Nav.Item>
                 <Nav.Link
