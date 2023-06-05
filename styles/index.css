@@ -4,6 +4,7 @@
 
 html {
   font-size: 13px;
+  font-family: "Roboto Condensed", sans-serif;
   @apply text-gray-900;
 }
 
@@ -142,3 +143,31 @@ html {
 
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.2); }
+
+footer a {
+  text-decoration: none !important;
+  color: inherit;
+}
+footer a:hover {
+  text-decoration: underline !important;
+  color: inherit;
+}
+
+.nav-links:hover {
+  border-bottom: 4px solid #007CBA!important;
+  }
+
+  .nav-links {
+    border-bottom: 4px solid #fff!important;
+    }
+
+    .navbar>.container{
+      max-width: 1600px;
+      padding: 0 17px 0 5px;
+    }
+
+.card-divider {
+  @media screen and (max-width: 575px) {
+    display: none
+  }
+}

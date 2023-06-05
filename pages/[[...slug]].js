@@ -5,6 +5,7 @@ import Seo from "@/components/elements/seo"
 import { useRouter } from "next/router"
 import Layout from "@/components/layout"
 import { getLocalizedPaths } from "utils/localize"
+import NihLayout from "@/components/nih-layout"
 
 // The file is called [[...slug]].js because we're using Next's
 // optional catch all routes feature. See the related docs:
@@ -33,7 +34,7 @@ const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
   }
 
   return (
-    <Layout global={global} pageContext={pageContext}>
+    <NihLayout global={global} pageContext={pageContext}>
       {/* Add meta tags for SEO*/}
       <Seo metadata={metadataWithDefaults} />
       {/* Display content sections */}
@@ -42,7 +43,7 @@ const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
         preview={preview}
         pageContext={pageContext}
       />
-    </Layout>
+    </NihLayout>
   )
 }
 
