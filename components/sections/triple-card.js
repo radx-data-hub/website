@@ -4,7 +4,7 @@ import { ListGroup } from "react-bootstrap";
 import CustomLink from "../elements/custom-link";
 
 const TripleCard = ({ data }) => {
-  console.log(data);
+
   return (
     <div className="prose-lg container mt-6">
       <NihCard title={data.title} style={{ width: "100%" }}>
