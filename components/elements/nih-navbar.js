@@ -49,6 +49,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
           href="https://radx-hub.nih.gov/home"
           style={{
             padding: "0 !important",
+            position: "relative"
           }}
         >
           <Link href="https://radx-hub.nih.gov/home">
@@ -63,7 +64,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
               color: "#63656a",
               position: "absolute",
               top: "60px",
-              left: "103px",
+              left: "100px",
               fontWeight: "bold",
               fontSize: ".8em",
               transform: "skewX(-14deg)"
