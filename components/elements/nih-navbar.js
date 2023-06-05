@@ -63,6 +63,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
                     fontSize: "1rem",
                     fontWeight: 700,
                     marginRight: "20px",
+                    whiteSpace: "nowrap"
                   }}
                   key={navLink.id}
                   href={navLink.url}
@@ -84,6 +85,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
                 fontSize: "1rem",
                 fontWeight: 700,
                 marginRight: "20px",
+                whiteSpace: "nowrap"
               }}
               href="https://radx-hub.nih.gov/home"
               className={"nav-links"}
@@ -95,7 +97,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
               {"Home"}
             </Nav.Link>
             <Nav.Link
-              style={{ color: "#007cba", fontSize: "1rem", fontWeight: 700 }}
+              style={{ color: "#007cba", fontSize: "1rem", fontWeight: 700, whiteSpace: "nowrap" }}
               eventKey={2}
               href="https://radx-hub.nih.gov/login"
               className={"nav-links"}
