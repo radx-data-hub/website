@@ -12,7 +12,7 @@ import {
   faCalendar,
   faBullhorn,
   faClipboardQuestion,
-  faCircleInfo
+  faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons";
 
 const NihNavbar = ({ navbar, pageContext }) => {
@@ -37,15 +37,21 @@ const NihNavbar = ({ navbar, pageContext }) => {
       style={{
         background: "#fff",
         boxShadow: "0 7px 7px -10px rgba(0,0,0,.6)",
-        margin: 0
+        margin: 0,
+        padding: 0,
       }}
       collapseOnSelect
       expand="lg"
       variant="light"
     >
       <Container>
-        <Navbar.Brand href="#home">
-          <Link href="/">
+        <Navbar.Brand
+          href="#home"
+          style={{
+            padding: "0 !important",
+          }}
+        >
+          <Link href="https://radx-hub.nih.gov/home">
             <a>
               <NextImage width="360" height="99" media={navbar.logo} />
             </a>
@@ -62,8 +68,8 @@ const NihNavbar = ({ navbar, pageContext }) => {
                     color: "#007cba",
                     fontSize: "1rem",
                     fontWeight: 700,
-                    marginRight: "20px",
-                    whiteSpace: "nowrap"
+                    marginRight: "18px",
+                    whiteSpace: "nowrap",
                   }}
                   key={navLink.id}
                   href={navLink.url}
@@ -78,14 +84,14 @@ const NihNavbar = ({ navbar, pageContext }) => {
               </Nav.Item>
             ))}
           </Nav>
-          <Nav >
+          <Nav>
             <Nav.Link
               style={{
                 color: "#007cba",
                 fontSize: "1rem",
                 fontWeight: 700,
-                marginRight: "20px",
-                whiteSpace: "nowrap"
+                marginRight: "18px",
+                whiteSpace: "nowrap",
               }}
               href="https://radx-hub.nih.gov/home"
               className={"nav-links"}
@@ -97,7 +103,12 @@ const NihNavbar = ({ navbar, pageContext }) => {
               {"Home"}
             </Nav.Link>
             <Nav.Link
-              style={{ color: "#007cba", fontSize: "1rem", fontWeight: 700, whiteSpace: "nowrap" }}
+              style={{
+                color: "#007cba",
+                fontSize: "1rem",
+                fontWeight: 700,
+                whiteSpace: "nowrap",
+              }}
               eventKey={2}
               href="https://radx-hub.nih.gov/login"
               className={"nav-links"}
