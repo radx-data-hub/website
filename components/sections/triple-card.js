@@ -4,11 +4,11 @@ import { ListGroup } from "react-bootstrap";
 import CustomLink from "../elements/custom-link";
 
 const TripleCard = ({ data }) => {
-  console.log(data);
+
   return (
     <div className="prose-lg container mt-6">
       <NihCard title={data.title} style={{ width: "100%" }}>
-        <ListGroup horizontal>
+        <ListGroup horizontal='sm'>
           {data.cardLink.map((item, i) => {
             return (
               <>
@@ -24,7 +24,7 @@ const TripleCard = ({ data }) => {
                   <CustomLink link={{ url: item.url }}>{item.text}</CustomLink>
                 </div>
                 {data.cardLink.length - 1 !== i && (
-                  <svg width="2" height="60">
+                  <svg width="2" height="60" className="card-divider">
                     <line
                       x1="1"
                       y1="0"
