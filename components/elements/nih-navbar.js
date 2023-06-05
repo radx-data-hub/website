@@ -60,7 +60,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav style={{marginLeft: "auto !important"}}>
             {navbar.links.map((navLink, i) => (
               <Nav.Item>
                 <Nav.Link
@@ -83,8 +83,6 @@ const NihNavbar = ({ navbar, pageContext }) => {
                 </Nav.Link>
               </Nav.Item>
             ))}
-          </Nav>
-          <Nav>
             <Nav.Link
               style={{
                 color: "#007cba",
