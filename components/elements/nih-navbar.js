@@ -62,11 +62,11 @@ const NihNavbar = ({ navbar, pageContext }) => {
               width: "180px",
               color: "#63656a",
               position: "absolute",
-              top: "60px",
+              top: "58px",
               left: "103px",
               fontWeight: "bold",
               fontStyle: "italic",
-              fontSize: ".9em"
+              fontSize: ".8em"
             }}
           >
             COVID RADx Data Hub
@@ -74,8 +74,8 @@ const NihNavbar = ({ navbar, pageContext }) => {
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav style={{ marginLeft: "auto !important" }}>
+        <Navbar.Collapse id="responsive-navbar-nav" style={{justifyContent: "end"}}>
+          <Nav>
             {navbar.links.map((navLink, i) => (
               <Nav.Item>
                 <Nav.Link
@@ -83,8 +83,9 @@ const NihNavbar = ({ navbar, pageContext }) => {
                     color: "#007cba",
                     fontSize: "1rem",
                     fontWeight: 700,
-                    marginRight: "18px",
+                    marginRight: "8px",
                     whiteSpace: "nowrap",
+                    marginLeft: "10px"
                   }}
                   key={navLink.id}
                   href={navLink.url}
@@ -103,8 +104,9 @@ const NihNavbar = ({ navbar, pageContext }) => {
                 color: "#007cba",
                 fontSize: "1rem",
                 fontWeight: 700,
-                marginRight: "18px",
+                marginRight: "8px",
                 whiteSpace: "nowrap",
+                marginLeft: "10px"
               }}
               href="https://radx-hub.nih.gov/home"
               className={"nav-links"}
@@ -121,6 +123,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
                 fontSize: "1rem",
                 fontWeight: 700,
                 whiteSpace: "nowrap",
+                marginLeft: "10px"
               }}
               eventKey={2}
               href="https://radx-hub.nih.gov/login"
