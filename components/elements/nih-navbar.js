@@ -46,7 +46,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
     >
       <Container>
         <Navbar.Brand
-          href="#home"
+          href="https://radx-hub.nih.gov/home"
           style={{
             padding: "0 !important",
           }}
