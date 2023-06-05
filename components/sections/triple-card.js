@@ -20,7 +20,9 @@ const TripleCard = ({ data }) => {
                     alignItems: "center",
                   }}
                 >
-                  <CustomLink link={{ url: item.url }}>{item.text}</CustomLink>
+                  <CustomLink link={{ url: item.url, newTab: "true" }}>
+                    {item.text}
+                  </CustomLink>
                 </div>
                 {data.cardLink.length - 1 !== i && (
                   <svg width="2" height="60" className="card-divider">
