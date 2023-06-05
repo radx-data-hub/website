@@ -24,7 +24,7 @@ const TripleCard = ({ data }) => {
                   <CustomLink link={{ url: item.url }}>{item.text}</CustomLink>
                 </div>
                 {data.cardLink.length - 1 !== i && (
-                  <svg width="2" height="60">
+                  <svg width="2" height="60" className="card-divider">
                     <line
                       x1="1"
                       y1="0"
