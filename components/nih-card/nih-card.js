@@ -1,6 +1,6 @@
-import { Fragment } from "react";
-import { Card as BootstrapCard } from "react-bootstrap";
-import classes from "./nih-card.module.css";
+import { Fragment } from "react"
+import { Card as BootstrapCard } from "react-bootstrap"
+import classes from "./nih-card.module.css"
 
 export const NihCard = ({
   title,
@@ -28,5 +28,5 @@ export const NihCard = ({
         )}
       </BootstrapCard.Body>
     </BootstrapCard>
-  );
-};
+  )
+}

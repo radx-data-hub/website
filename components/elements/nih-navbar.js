@@ -1,11 +1,11 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
-import Link from "next/link";
-import NextImage from "./image";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react"
+import PropTypes from "prop-types"
+import Link from "next/link"
+import NextImage from "./image"
+import Container from "react-bootstrap/Container"
+import Nav from "react-bootstrap/Nav"
+import Navbar from "react-bootstrap/Navbar"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faHouseChimney,
   faRightToBracket,
@@ -13,24 +13,24 @@ import {
   faBullhorn,
   faClipboardQuestion,
   faCircleInfo,
-} from "@fortawesome/free-solid-svg-icons";
+} from "@fortawesome/free-solid-svg-icons"
 
 const NihNavbar = ({ navbar, pageContext }) => {
   const chooseIcon = (index) => {
     switch (index) {
       case 0:
-        return faCircleInfo;
+        return faCircleInfo
       case 1:
-        return faCalendar;
+        return faCalendar
       case 2:
-        return faBullhorn;
+        return faBullhorn
       case 3:
-        return faClipboardQuestion;
+        return faClipboardQuestion
 
       default:
-        return faCalendar;
+        return faCalendar
     }
-  };
+  }
 
   return (
     <Navbar
@@ -49,6 +49,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
           href="https://radx-hub.nih.gov/home"
           style={{
             padding: "0 !important",
+            position: "relative",
           }}
         >
           <Link href="https://radx-hub.nih.gov/home">
@@ -63,10 +64,10 @@ const NihNavbar = ({ navbar, pageContext }) => {
               color: "#63656a",
               position: "absolute",
               top: "60px",
-              left: "103px",
+              left: "100px",
               fontWeight: "bold",
               fontSize: ".8em",
-              transform: "skewX(-14deg)"
+              transform: "skewX(-14deg)",
             }}
           >
             COVID RADx Data Hub
@@ -74,10 +75,13 @@ const NihNavbar = ({ navbar, pageContext }) => {
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" style={{justifyContent: "end"}}>
+        <Navbar.Collapse
+          id="responsive-navbar-nav"
+          style={{ justifyContent: "end" }}
+        >
           <Nav>
             {navbar.links.map((navLink, i) => (
-              <Nav.Item>
+              <Nav.Item key={navLink.url}>
                 <Nav.Link
                   style={{
                     color: "#007cba",
@@ -85,7 +89,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
                     fontWeight: 700,
                     marginRight: "8px",
                     whiteSpace: "nowrap",
-                    marginLeft: "10px"
+                    marginLeft: "10px",
                   }}
                   key={navLink.id}
                   href={navLink.url}
@@ -106,7 +110,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
                 fontWeight: 700,
                 marginRight: "8px",
                 whiteSpace: "nowrap",
-                marginLeft: "10px"
+                marginLeft: "10px",
               }}
               href="https://radx-hub.nih.gov/home"
               className={"nav-links"}
@@ -123,7 +127,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
                 fontSize: "1rem",
                 fontWeight: 700,
                 whiteSpace: "nowrap",
-                marginLeft: "10px"
+                marginLeft: "10px",
               }}
               eventKey={2}
               href="https://radx-hub.nih.gov/login"
@@ -139,7 +143,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
 
-export default NihNavbar;
+export default NihNavbar

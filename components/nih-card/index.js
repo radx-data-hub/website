@@ -1,1 +1,1 @@
-export * from './nih-card'
+export * from "./nih-card"
