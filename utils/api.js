@@ -301,6 +301,13 @@ export async function getPageData({ slug, locale, preview }) {
                       timeAndDate
                     }
                   }
+                  ... on ComponentSectionsTripleCard {
+                    title
+                    cardLink{
+                      text
+                      url
+                    }
+                  }
                 }
               }
             }
