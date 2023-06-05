@@ -152,3 +152,11 @@ footer a:hover {
   text-decoration: underline !important;
   color: inherit;
 }
+
+.nav-links:hover {
+  border-bottom: 4px solid #007CBA!important;
+  }
+
+  .nav-links {
+    border-bottom: 4px solid #fff!important;
+    }

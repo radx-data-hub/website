@@ -1,6 +1,7 @@
 import { getPageData } from "utils/api"
 import { getGlobalData } from "utils/api"
 import Layout from "@/components/layout"
+import NihLayout from "@/components/nih-layout"
 import Seo from "@/components/elements/seo"
 import { useRouter } from "next/router"
 import Markdown from "react-markdown"
@@ -33,7 +34,7 @@ export default function LatestUpdatePage({ sections, metadata, global }) {
   let d = new Date(latestUpdate.publishedDate)
 
   return (
-    <Layout global={global}>
+    <NihLayout global={global}>
       {/* Add meta tags for SEO*/}
       <Seo metadata={metadataWithDefaults} />
       {/* Display content sections */}
@@ -60,7 +61,7 @@ export default function LatestUpdatePage({ sections, metadata, global }) {
           </Markdown>
         </div>
       </section>
-    </Layout>
+    </NihLayout>
   )
 }
 

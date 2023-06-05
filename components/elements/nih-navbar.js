@@ -1,0 +1,116 @@
+import { useState } from "react";
+import PropTypes from "prop-types";
+import Link from "next/link";
+import NextImage from "./image";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHouseChimney,
+  faRightToBracket,
+  faCalendar,
+  faBullhorn,
+  faClipboardQuestion,
+  faPeopleGroup
+} from "@fortawesome/free-solid-svg-icons";
+
+const NihNavbar = ({ navbar, pageContext }) => {
+  const chooseIcon = (index) => {
+    switch (index) {
+      case 0:
+        return faPeopleGroup;
+      case 1:
+        return faCalendar;
+      case 2:
+        return faBullhorn;
+      case 3:
+        return faClipboardQuestion;
+
+      default:
+        return faCalendar;
+    }
+  };
+
+  return (
+    <Navbar
+      style={{
+        background: "#fff",
+        boxShadow: "0 7px 7px -10px rgba(0,0,0,.6)",
+        height: "96px",
+      }}
+      collapseOnSelect
+      expand="lg"
+      variant="light"
+    >
+      <Container style={{ margin: 0, paddingLeft: "5px", paddingTop: "13px" }}>
+        <Navbar.Brand href="#home">
+          <Link href="/">
+            <a>
+              <NextImage width="360" height="99" media={navbar.logo} />
+            </a>
+          </Link>
+        </Navbar.Brand>
+
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            {navbar.links.map((navLink, i) => (
+              <Nav.Item>
+                <Nav.Link
+                  style={{
+                    color: "#007cba",
+                    fontSize: "1rem",
+                    fontWeight: 700,
+                    marginRight: "20px",
+                  }}
+                  key={navLink.id}
+                  href={navLink.url}
+                  className={"nav-links"}
+                >
+                  <FontAwesomeIcon
+                    style={{ marginRight: "6px" }}
+                    icon={chooseIcon(i)}
+                  />
+                  {navLink.text}
+                </Nav.Link>
+              </Nav.Item>
+            ))}
+          </Nav>
+          <Nav style={{ marginRight: "-155px" }}>
+            <Nav.Link
+              style={{
+                color: "#007cba",
+                fontSize: "1rem",
+                fontWeight: 700,
+                marginRight: "20px",
+              }}
+              href="https://radx-hub.nih.gov/home"
+              className={"nav-links"}
+            >
+              <FontAwesomeIcon
+                icon={faHouseChimney}
+                style={{ marginRight: "6px" }}
+              />
+              {"Home"}
+            </Nav.Link>
+            <Nav.Link
+              style={{ color: "#007cba", fontSize: "1rem", fontWeight: 700 }}
+              eventKey={2}
+              href="https://radx-hub.nih.gov/login"
+              className={"nav-links"}
+            >
+              <FontAwesomeIcon
+                style={{ marginRight: "6px" }}
+                icon={faRightToBracket}
+              />
+              {"Login"}
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
+
+export default NihNavbar;
