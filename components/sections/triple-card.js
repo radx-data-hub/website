@@ -8,7 +8,7 @@ const TripleCard = ({ data }) => {
   return (
     <div className="prose-lg container mt-6">
       <NihCard title={data.title} style={{ width: "100%" }}>
-        <ListGroup horizontal>
+        <ListGroup horizontal='sm'>
           {data.cardLink.map((item, i) => {
             return (
               <>
