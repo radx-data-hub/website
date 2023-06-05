@@ -1,14 +1,13 @@
-import React from "react";
-import { NihCard } from "../nih-card";
-import { ListGroup } from "react-bootstrap";
-import CustomLink from "../elements/custom-link";
+import React from "react"
+import { NihCard } from "../nih-card"
+import { ListGroup } from "react-bootstrap"
+import CustomLink from "../elements/custom-link"
 
 const TripleCard = ({ data }) => {
-
   return (
     <div className="prose-lg container mt-6">
       <NihCard title={data.title} style={{ width: "100%" }}>
-        <ListGroup horizontal='sm'>
+        <ListGroup horizontal="sm">
           {data.cardLink.map((item, i) => {
             return (
               <>
@@ -36,12 +35,12 @@ const TripleCard = ({ data }) => {
                   </svg>
                 )}
               </>
-            );
+            )
           })}
         </ListGroup>
       </NihCard>
     </div>
-  );
-};
+  )
+}
 
-export default TripleCard;
+export default TripleCard
