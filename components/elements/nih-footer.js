@@ -27,29 +27,24 @@ const NIHFooter = () => {
         <Row style={{ padding: "1.5rem 2.5rem" }}>
           <Col xs={12} sm={12} md={6} lg={3}>
             <div>Connect with NIH</div>
-            <Row style={{ paddingTop: "0.5rem" }}>
-              <Col xs={1} sm={1} lg={1} style={{ marginRight: "0.5rem" }}>
+            <Row style={{ paddingTop: "0.2rem" }}>
+              <Col xs={1} sm={1} lg={1} style={{ marginRight: "0.4rem" }}>
                 <CustomLink link={{ url: "https://twitter.com/NIH", id: "1" }}>
-                  <FontAwesomeIcon icon={faTwitterSquare} />
+                  <FontAwesomeIcon icon={faTwitterSquare} size="2xl" />
                 </CustomLink>
               </Col>
-              <Col
-                xs={1}
-                sm={1}
-                lg={1}
-                style={{ marginLeft: "0.5rem", marginRight: "0.5rem" }}
-              >
+              <Col xs={1} sm={1} lg={1}>
                 <CustomLink
                   link={{ url: "https://www.facebook.com/nih.gov", id: "1" }}
                 >
-                  <FontAwesomeIcon icon={faFacebookSquare} />
+                  <FontAwesomeIcon icon={faFacebookSquare} size="2xl" />
                 </CustomLink>
               </Col>
-              <Col xs={1} sm={1} lg={1} style={{ marginLeft: "0.5rem" }}>
+              <Col xs={1} sm={1} lg={1} style={{ marginLeft: "0.4rem" }}>
                 <CustomLink
                   link={{ url: "https://www.youtube.com/user/NIHOD", id: "1" }}
                 >
-                  <FontAwesomeIcon icon={faYoutubeSquare} />
+                  <FontAwesomeIcon icon={faYoutubeSquare} size="2xl" />
                 </CustomLink>
               </Col>
             </Row>
