@@ -49,6 +49,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
         style={{
           padding: "0 !important",
           position: "relative",
+          paddingLeft: "5px",
         }}
       >
         <Link href="https://radx-hub.nih.gov/home">
@@ -62,8 +63,8 @@ const NihNavbar = ({ navbar, pageContext }) => {
             width: "180px",
             color: "#63656a",
             position: "absolute",
-            top: "60px",
-            left: "100px",
+            top: "65px",
+            left: "104px",
             fontWeight: "bold",
             fontSize: ".8em",
             transform: "skewX(-14deg)",
@@ -73,7 +74,12 @@ const NihNavbar = ({ navbar, pageContext }) => {
         </span>
       </Navbar.Brand>
 
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Toggle
+        aria-controls="responsive-navbar-nav"
+        style={{
+          marginRight: "16px",
+        }}
+      />
       <Navbar.Collapse
         id="responsive-navbar-nav"
         style={{ justifyContent: "end" }}
@@ -127,6 +133,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
               fontWeight: 700,
               whiteSpace: "nowrap",
               marginLeft: "10px",
+              marginRight: "17px",
             }}
             eventKey={2}
             href="https://radx-hub.nih.gov/login"
