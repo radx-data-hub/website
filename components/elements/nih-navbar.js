@@ -93,7 +93,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
         <Nav>
           {navbar.links.map((navLink, i) => (
             <>
-              {navLink.text == "About" ? (
+              {navLink.url == "/about" ? (
                 <NavDropdown
                   title="About"
                   id="basic-nav-dropdown"
