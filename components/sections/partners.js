@@ -121,7 +121,7 @@ const PartnerLogos = ({
             <button
               key={idx}
               className="grow object-scale-down flex items-center"
-              style={{ height: "130px", margin: "0px 10px" }}
+              style={{ margin: "0px 10px", maxHeight: '130px', maxWidth: '400px' }}
               role="tab"
               aria-selected={indexRef.current === idx ? "true" : "false"}
               // aria-controls={`tabpanel-${partner.id}`}
@@ -132,7 +132,7 @@ const PartnerLogos = ({
             >
               {/* eslint-disable @next/next/no-img-element */}
               <img
-                style={{ width: "100%", height: "100%" }}
+                style={{maxHeight: '130px', maxWidth: '300px'  }}
                 key={idx}
                 id={`logo-${idx}`}
                 className="partnerLogos grow"
