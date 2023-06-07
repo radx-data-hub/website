@@ -21,7 +21,7 @@ const Footer = ({ footer }) => {
             <div key={footerColumn.id} className="mt-10 lg:mt-0 lg:w-auto">
               <ul className="">
                 {footerColumn.links.map((link) => (
-                  <li key={link.id} className="pr-6 text-white" >
+                  <li key={link.id} className="pr-6 text-white">
                     <CustomLink
                       compact={false}
                       appearance={"dark-footer"}
