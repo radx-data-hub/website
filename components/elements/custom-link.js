@@ -17,7 +17,7 @@ const CustomLink = ({ link, children }) => {
   // Plain <a> tags for external links
   if (link.newTab) {
     return (
-      <a href={link.url} target="_blank" rel="noopener noreferrer">
+      <a href={link.url} target="_blank" rel="noopener noreferrer" className="tracking-wide font-light">
         {children}
       </a>
     )
