@@ -84,8 +84,8 @@ const PartnerLogos = ({
   }
 
   /* This function allows the logos to be keyboard-accessible
- */
-  const selectContent = index => () => {
+   */
+  const selectContent = (index) => () => {
     setTabIndex(index)
     setCurrentPartner(partners[index])
   }
@@ -121,18 +121,23 @@ const PartnerLogos = ({
             <button
               key={idx}
               className="grow object-scale-down flex items-center"
-              style={{ margin: "0px 10px", maxHeight: '130px', maxWidth: '400px' }}
+              style={{
+                margin: "0px 10px",
+                maxHeight: "130px",
+                maxWidth: "400px",
+              }}
               role="tab"
               aria-selected={indexRef.current === idx ? "true" : "false"}
               // aria-controls={`tabpanel-${partner.id}`}
               id={`tab-${partner.id}`}
               // tabIndex={indexRef.current === idx ? 0 : -1}
-              onMouseEnter={(e) => onHover(e)} onMouseOut={(e) =>onLeave(e)}
+              onMouseEnter={(e) => onHover(e)}
+              onMouseOut={(e) => onLeave(e)}
               onFocus={selectContent(idx)}
             >
               {/* eslint-disable @next/next/no-img-element */}
               <img
-                style={{maxHeight: '130px', maxWidth: '300px'  }}
+                style={{ maxHeight: "130px", maxWidth: "300px" }}
                 key={idx}
                 id={`logo-${idx}`}
                 className="partnerLogos grow"
