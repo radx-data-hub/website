@@ -13,18 +13,21 @@ import {
   faBullhorn,
   faClipboardQuestion,
   faCircleInfo,
+  faFlagCheckered,
 } from "@fortawesome/free-solid-svg-icons"
 
 const NihNavbar = ({ navbar, pageContext }) => {
   const chooseIcon = (index) => {
     switch (index) {
       case 0:
-        return faCircleInfo
+        return faFlagCheckered
       case 1:
-        return faCalendar
+        return faCircleInfo
       case 2:
-        return faBullhorn
+        return faCalendar
       case 3:
+        return faBullhorn
+      case 4:
         return faClipboardQuestion
 
       default:
