@@ -5,6 +5,7 @@ import NextImage from "./image"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
+import NavDropdown from "react-bootstrap/NavDropdown"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faHouseChimney,
@@ -14,6 +15,7 @@ import {
   faClipboardQuestion,
   faCircleInfo,
   faFlagCheckered,
+  faDatabase,
 } from "@fortawesome/free-solid-svg-icons"
 
 const NihNavbar = ({ navbar, pageContext }) => {
@@ -24,10 +26,12 @@ const NihNavbar = ({ navbar, pageContext }) => {
       case 1:
         return faCircleInfo
       case 2:
-        return faCalendar
+        return faDatabase
       case 3:
-        return faBullhorn
+        return faCalendar
       case 4:
+        return faBullhorn
+      case 5:
         return faClipboardQuestion
 
       default:
@@ -106,6 +110,29 @@ const NihNavbar = ({ navbar, pageContext }) => {
             />
             {"Home"}
           </Nav.Link>
+          {/* <NavDropdown
+            title="Dropdown"
+            id="basic-nav-dropdown"
+            style={{
+              color: "#007cba",
+              fontSize: "1rem",
+              fontWeight: 700,
+              marginRight: "8px",
+              whiteSpace: "nowrap",
+              marginLeft: "10px",
+            }}
+          >
+            <NavDropdown.Item href="#action/3.1">
+              <FontAwesomeIcon
+                style={{ marginRight: "6px" }}
+                icon={chooseIcon(1)}
+              />
+              Action
+            </NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">
+              Another action
+            </NavDropdown.Item>
+          </NavDropdown> */}
           {navbar.links.map((navLink, i) => (
             <Nav.Item key={navLink.url}>
               <Nav.Link
