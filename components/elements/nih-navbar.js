@@ -5,6 +5,7 @@ import NextImage from "./image"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
+import NavDropdown from "react-bootstrap/NavDropdown"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faHouseChimney,
@@ -13,22 +14,27 @@ import {
   faBullhorn,
   faClipboardQuestion,
   faCircleInfo,
+  faFlagCheckered,
+  faDatabase,
 } from "@fortawesome/free-solid-svg-icons"
 
 const NihNavbar = ({ navbar, pageContext }) => {
   const chooseIcon = (index) => {
     switch (index) {
       case 0:
-        return faCircleInfo
+        return faHouseChimney
       case 1:
-        return faCalendar
+        return faFlagCheckered
       case 2:
-        return faBullhorn
-      case 3:
-        return faClipboardQuestion
-
-      default:
         return faCalendar
+      case 3:
+        return faBullhorn
+      case 4:
+        return faClipboardQuestion
+      case 5:
+        return faRightToBracket
+      default:
+        return faRightToBracket
     }
   }
 
@@ -85,66 +91,75 @@ const NihNavbar = ({ navbar, pageContext }) => {
         style={{ justifyContent: "end" }}
       >
         <Nav>
-          <Nav.Link
-            style={{
-              color: "#007cba",
-              fontSize: "1rem",
-              fontWeight: 700,
-              marginRight: "8px",
-              whiteSpace: "nowrap",
-              marginLeft: "10px",
-            }}
-            href="https://radx-hub.nih.gov/home"
-            className={"nav-links"}
-          >
-            <FontAwesomeIcon
-              icon={faHouseChimney}
-              style={{ marginRight: "6px" }}
-            />
-            {"Home"}
-          </Nav.Link>
           {navbar.links.map((navLink, i) => (
-            <Nav.Item key={navLink.url}>
-              <Nav.Link
-                style={{
-                  color: "#007cba",
-                  fontSize: "1rem",
-                  fontWeight: 700,
-                  marginRight: "8px",
-                  whiteSpace: "nowrap",
-                  marginLeft: "10px",
-                }}
-                key={navLink.id}
-                href={navLink.url}
-                className={"nav-links"}
-              >
-                <FontAwesomeIcon
-                  style={{ marginRight: "6px" }}
-                  icon={chooseIcon(i)}
-                />
-                {navLink.text}
-              </Nav.Link>
-            </Nav.Item>
+            <>
+              {navLink.url == "/about" ? (
+                <NavDropdown
+                  title="About"
+                  id="basic-nav-dropdown"
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: 700,
+                  }}
+                >
+                  <NavDropdown.Item
+                    href={navLink.url}
+                    style={{
+                      color: "#007cba",
+                      fontSize: "1rem",
+                      fontWeight: 700,
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      style={{
+                        marginRight: "6px",
+                      }}
+                      icon={faCircleInfo}
+                    />
+                    {navLink.text}
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    href="/data"
+                    style={{
+                      color: "#007cba",
+                      fontSize: "1rem",
+                      fontWeight: 700,
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      style={{
+                        marginRight: "6px",
+                      }}
+                      icon={faDatabase}
+                    />
+                    The Data
+                  </NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <Nav.Item key={navLink.url}>
+                  <Nav.Link
+                    style={{
+                      color: "#007cba",
+                      fontSize: "1rem",
+                      fontWeight: 700,
+                      marginRight: "8px",
+                      whiteSpace: "nowrap",
+                      marginLeft: "10px",
+                    }}
+                    key={navLink.id}
+                    href={navLink.url}
+                    className={"nav-links"}
+                  >
+                    <FontAwesomeIcon
+                      style={{ marginRight: "6px" }}
+                      icon={chooseIcon(i)}
+                    />
+                    {navLink.text}
+                  </Nav.Link>
+                </Nav.Item>
+              )}
+            </>
           ))}
-          <Nav.Link
-            style={{
-              color: "#007cba",
-              fontSize: "1rem",
-              fontWeight: 700,
-              whiteSpace: "nowrap",
-              marginLeft: "10px",
-              marginRight: "17px",
-            }}
-            eventKey={2}
-            href="https://radx-hub.nih.gov/login"
-            className={"nav-links"}
-          >
-            <FontAwesomeIcon
-              style={{ marginRight: "6px" }}
-              icon={faRightToBracket}
-            />
-            {"Login"}
-          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
