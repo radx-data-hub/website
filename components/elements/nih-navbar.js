@@ -132,7 +132,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
                       }}
                       icon={faDatabase}
                     />
-                    Data
+                    The Data
                   </NavDropdown.Item>
                 </NavDropdown>
               ) : (
