@@ -17,8 +17,10 @@ import {
   faFlagCheckered,
   faDatabase,
 } from "@fortawesome/free-solid-svg-icons"
+import { useRouter } from "next/router"
 
 const NihNavbar = ({ navbar, pageContext }) => {
+  const router = useRouter()
   const chooseIcon = (index) => {
     switch (index) {
       case 0:
@@ -38,6 +40,11 @@ const NihNavbar = ({ navbar, pageContext }) => {
       default:
         return faRightToBracket
     }
+  }
+
+  const active = (url) => {
+    const output = router.asPath == url ? " nav-links-util" : ""
+    return output
   }
 
   return (
@@ -105,6 +112,8 @@ const NihNavbar = ({ navbar, pageContext }) => {
                   style={{
                     fontSize: "1rem",
                     fontWeight: 700,
+                    marginLeft: "10px",
+                    marginRight: "8px",
                   }}
                 >
                   <NavDropdown.Item
@@ -153,7 +162,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
                     }}
                     key={navLink.id}
                     href={navLink.url}
-                    className={"nav-links"}
+                    className={"nav-links" + active(navLink.url)}
                   >
                     <FontAwesomeIcon
                       style={{ marginRight: "6px" }}
