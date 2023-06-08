@@ -129,6 +129,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
                         marginRight: "6px",
                       }}
                       icon={faCircleInfo}
+                      size="1rem"
                     />
                     {navLink.text}
                   </NavDropdown.Item>
@@ -145,6 +146,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
                         marginRight: "6px",
                       }}
                       icon={faDatabase}
+                      size="1rem"
                     />
                     The Data
                   </NavDropdown.Item>
@@ -167,6 +169,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
                     <FontAwesomeIcon
                       style={{ marginRight: "6px" }}
                       icon={chooseIcon(i)}
+                      size="1rem"
                     />
                     {navLink.text}
                   </Nav.Link>
