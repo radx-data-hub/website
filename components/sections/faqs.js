@@ -23,7 +23,7 @@ const AccordionSummary = styled((props) => (
   <MuiAccordionSummary
     expandIcon={
       <ArrowForwardIosSharpIcon
-        sx={{ fontSize: "1.4rem", color: "rgb(56, 121, 130)" }}
+        sx={{ fontSize: "1.4rem", color: "#2e2925" }}
       />
     }
     {...props}
@@ -103,8 +103,8 @@ export default function Faqs(props) {
 
   return (
     <div className="container mt-12 mb-6 ">
-      <h2 className="mb-[8px] text-[#4a66ac] font-bold text-3xl">FAQs</h2>
-      <hr className="text-orange border-t-[2px] border-orange mb-12"></hr>
+      <h2 className="mb-[8px] text-nihGrey font-bold text-3xl">FAQs</h2>
+      <hr className="text-nihGrey border-t-[2px] border-nihGrey mb-12"></hr>
       {faqs.map((faq, i) => {
         return (
           <div
@@ -118,8 +118,8 @@ export default function Faqs(props) {
               style={{
                 textAlign: "center",
                 fontSize: "1.6rem",
-                backgroundColor: "rgb(56, 121, 130)",
-                color: "white",
+                backgroundColor: "#d5e8f4",
+                color: "#2E2925",
                 padding: "0.5rem 0",
               }}
             >
@@ -142,7 +142,7 @@ export default function Faqs(props) {
                     borderLeft: "none",
                     borderRight: "none",
                     borderTop: "none",
-                    borderBottom: "1px solid rgb(56, 121, 130)",
+                    borderBottom: "1px solid #00496e",
                   }}
                   key={question.attributes.faqs.question + i}
                 >

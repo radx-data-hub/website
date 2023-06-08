@@ -40,10 +40,10 @@ export default function LatestUpdatePage({ sections, metadata, global }) {
       {/* Display content sections */}
 
       <section className="container mt-6">
-        <h1 className="mt-[48px] mb-[8px] text-3xl text-aquaBlue font-bold">
+        <h1 className="mt-[48px] mb-[8px] text-3xl text-nihGrey font-bold">
           {latestUpdate.title}
         </h1>
-        <hr className="text-orange border-t-[2px] border-orange mb-2"></hr>
+        <hr className="text-nihGrey border-t-[2px] border-nihGrey mb-2"></hr>
         <p className="mb-4">
           Published on{" "}
           <span>

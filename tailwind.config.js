@@ -43,6 +43,9 @@ module.exports = {
           DEFAULT: "#5AA2AC",
           dark: "#387982",
         },
+        nihGrey: {
+          DEFAULT: "#2e2925",
+        },
       },
       container: {
         center: true,
