@@ -26,12 +26,14 @@ const NihNavbar = ({ navbar, pageContext }) => {
       case 1:
         return faFlagCheckered
       case 2:
-        return faCalendar
+        return faCircleInfo
       case 3:
-        return faBullhorn
+        return faCalendar
       case 4:
-        return faClipboardQuestion
+        return faBullhorn
       case 5:
+        return faClipboardQuestion
+      case 6:
         return faRightToBracket
       default:
         return faRightToBracket
@@ -47,7 +49,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
         padding: 0,
       }}
       collapseOnSelect
-      expand="lg"
+      expand="xl"
       variant="light"
     >
       <Navbar.Brand
@@ -56,11 +58,14 @@ const NihNavbar = ({ navbar, pageContext }) => {
           padding: "0 !important",
           position: "relative",
           paddingLeft: "5px",
+          minHeight: "96px",
+          maxHeight: "96px",
+          minWidth: "380px",
         }}
       >
         <Link href="https://radx-hub.nih.gov/home">
           <a>
-            <NextImage width="360" height="99" media={navbar.logo} />
+            <NextImage width="362" height="99" media={navbar.logo} />
           </a>
         </Link>
         <span
@@ -69,10 +74,10 @@ const NihNavbar = ({ navbar, pageContext }) => {
             width: "180px",
             color: "#63656a",
             position: "absolute",
-            top: "65px",
+            top: "60px",
             left: "104px",
             fontWeight: "bold",
-            fontSize: ".8em",
+            fontSize: "16px",
             transform: "skewX(-14deg)",
           }}
         >
@@ -88,7 +93,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
       />
       <Navbar.Collapse
         id="responsive-navbar-nav"
-        style={{ justifyContent: "end" }}
+        style={{ justifyContent: "end", marginTop: "12px", marginRight: "9px" }}
       >
         <Nav>
           {navbar.links.map((navLink, i) => (
