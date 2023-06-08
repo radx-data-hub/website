@@ -1,12 +1,12 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
-import Link from "next/link";
-import NextImage from "./image";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react"
+import PropTypes from "prop-types"
+import Link from "next/link"
+import NextImage from "./image"
+import Container from "react-bootstrap/Container"
+import Nav from "react-bootstrap/Nav"
+import Navbar from "react-bootstrap/Navbar"
+import NavDropdown from "react-bootstrap/NavDropdown"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faHouseChimney,
   faRightToBracket,
@@ -16,39 +16,39 @@ import {
   faCircleInfo,
   faFlagCheckered,
   faDatabase,
-} from "@fortawesome/free-solid-svg-icons";
-import { useRouter } from "next/router";
-import Head from "next/head";
-import { config, dom } from "@fortawesome/fontawesome-svg-core";
-config.autoAddCss = false;
+} from "@fortawesome/free-solid-svg-icons"
+import { useRouter } from "next/router"
+import Head from "next/head"
+import { config, dom } from "@fortawesome/fontawesome-svg-core"
+config.autoAddCss = false
 
 const NihNavbar = ({ navbar, pageContext }) => {
-  const router = useRouter();
+  const router = useRouter()
   const chooseIcon = (index) => {
     switch (index) {
       case 0:
-        return faHouseChimney;
+        return faHouseChimney
       case 1:
-        return faFlagCheckered;
+        return faFlagCheckered
       case 2:
-        return faCircleInfo;
+        return faCircleInfo
       case 3:
-        return faCalendar;
+        return faCalendar
       case 4:
-        return faBullhorn;
+        return faBullhorn
       case 5:
-        return faClipboardQuestion;
+        return faClipboardQuestion
       case 6:
-        return faRightToBracket;
+        return faRightToBracket
       default:
-        return faRightToBracket;
+        return faRightToBracket
     }
-  };
+  }
 
   const active = (url) => {
-    const output = router.asPath == url ? " nav-links-util" : "";
-    return output;
-  };
+    const output = router.asPath == url ? " nav-links-util" : ""
+    return output
+  }
 
   return (
     <div>
@@ -198,7 +198,7 @@ const NihNavbar = ({ navbar, pageContext }) => {
         </Navbar.Collapse>
       </Navbar>
     </div>
-  );
-};
+  )
+}
 
-export default NihNavbar;
+export default NihNavbar
