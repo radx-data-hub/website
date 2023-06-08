@@ -21,7 +21,7 @@ const CustomLink = ({ link, children }) => {
         href={link.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="tracking-wide font-light"
+        className="tracking-wide"
       >
         {children}
       </a>
