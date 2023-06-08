@@ -4,6 +4,11 @@ import Markdown from "react-markdown"
 
 const LatestUpdates = ({ data }) => {
   let { updateInfo } = data
+  const trimText = (update) => {
+    const description = update.excerpt ?  update.excerpt :  update.body
+    return description
+  }
+
   return (
     <div className="container">
       <h1 className="mt-[48px] mb-[8px] text-2xl text-nihGrey font-bold">
@@ -35,23 +40,14 @@ const LatestUpdates = ({ data }) => {
               </span>
             </p>
             <div className="mb-4 text-lg">
-              <a
-                target="_blank"
-                href={`/latest-updates/${update.title.replace(/\s/g, "")}`}
-                rel="noreferrer"
+              <Markdown
+                linkTarget="_blank"
+                className="rich-text-additions"
               >
-                <div style={{ height: "120px" }}>
-                  <div style={{ height: "51px", overflow: "hidden" }}>
-                    <Markdown
-                      linkTarget="_blank"
-                      className="rich-text-additions"
-                    >
-                      {`${update.body} ...`}
-                    </Markdown>
-                  </div>
-                  ...
-                </div>
-              </a>
+                {trimText(update)}
+              </Markdown>
+              <br/>
+              <hr/>
             </div>
           </div>
         )

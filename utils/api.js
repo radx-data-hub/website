@@ -288,6 +288,7 @@ export async function getPageData({ slug, locale, preview }) {
                       title
                       publishedDate
                       body
+                      excerpt
                     }
                   }
                   ... on ComponentSectionsEvents {
