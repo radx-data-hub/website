@@ -167,9 +167,11 @@ const NihNavbar = ({ navbar, pageContext }) => {
                     className={"nav-links" + active(navLink.url)}
                   >
                     <FontAwesomeIcon
-                      style={{ marginRight: "6px" }}
+                      style={{
+                        marginRight: "6px",
+                        fontSize: "16px !important",
+                      }}
                       icon={chooseIcon(i)}
-                      size="1rem"
                     />
                     {navLink.text}
                   </Nav.Link>
