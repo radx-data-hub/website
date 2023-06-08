@@ -6,7 +6,7 @@ import CustomLink from "../elements/custom-link"
 const TripleCard = ({ data }) => {
   return (
     <div className="prose-lg container mt-6">
-      <NihCard title={data.title} style={{ width: "100%" }}>
+      <NihCard title={data.title} style={{ width: "100%", fontSize: '1.1rem', fontWeight: '600' }}>
         <ListGroup horizontal="sm">
           {data.cardLink.map((item, i) => {
             return (
@@ -20,7 +20,7 @@ const TripleCard = ({ data }) => {
                     alignItems: "center",
                   }}
                 >
-                  <CustomLink link={{ url: item.url, newTab: "true" }}>
+                  <CustomLink link={{ url: item.url, newTab: "true" }} style={{fontWeight: '600'}}>
                     {item.text}
                   </CustomLink>
                 </div>
