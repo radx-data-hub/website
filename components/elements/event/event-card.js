@@ -17,7 +17,7 @@ const EventCard = ({ data }) => {
         />
       </div>
       <div className="md:w-[80%]" style={{ whiteSpace: "break-spaces" }}>
-        <h2 className="text-coralBlue text-2xl font-bold">{data.title}</h2>
+        <h2 className="text-radxBlue text-2xl font-bold">{data.title}</h2>
         {data.title == "Ongoing" ? (
           <h3 className="text-base font-bold mb-5">{""}</h3>
         ) : (

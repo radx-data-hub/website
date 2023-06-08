@@ -34,21 +34,22 @@ const Events = ({ data }) => {
     <div className="container mt-[48px]">
       {upcoming.length !== 0 && (
         <>
-          <h2 className="mb-[8px] text-[#4a66ac] font-bold text-2xl">
+          <h2 className="mb-[8px] text-nihGrey font-bold text-2xl">
             {"Upcoming Events"}
           </h2>
-          <hr className="text-orange border-t-[2px] border-orange"></hr>
+          <hr className="text-nihGrey border-t-[2px] border-nihGrey"></hr>
           {upcoming.map((event, i) => {
             return <EventCard key={i + event.title} data={event} />
           })}
+          <br />
           <br></br>
         </>
       )}
 
-      <h2 className="mb-[8px] text-[#4a66ac] font-bold text-2xl">
+      <h2 className="mb-[8px] text-nihGrey font-bold text-2xl">
         {"Past Events"}
       </h2>
-      <hr className="text-orange border-t-[2px] border-orange"></hr>
+      <hr className="text-nihGrey border-t-[2px] border-nihGrey"></hr>
       {past.map((event, i) => {
         return <EventCard key={i + event.title} data={event} />
       })}

@@ -62,10 +62,14 @@ html {
 }
 
 .rich-text-additions a {
-  color: #243D7E;
+  color: #007CBA;
   font-weight:bold;
 }
 
+p a:hover {
+  color: #00496e;
+  text-decoration: underline !important;
+}
 .rich-text-additions img {
   display: inline-block;
   margin: 0;
@@ -85,23 +89,20 @@ html {
   display:inline-block;
   margin: 0;
   padding: 0;
-  color: #4a66ac;
+  color: #00496e
 }
 
 .rich-text-additions h4 {
   display:inline-block;
   margin: 0;
   padding: 0;
-  color: #5AA2AC;
   font-size: 1.6rem;
   margin-bottom: 0px;
 }
 
 .rich-text-additions h6 a{
   padding: 8px 20px;
-    color: white;
-    background: #233b79;
-    border-radius: 7px;
+  border-radius: 7px;
 }
 
 .rich-text-additions h2 {
@@ -118,7 +119,7 @@ html {
 }
 
 .event-card a {
-  color: #243D7E;
+  color: #007cba;
   font-weight: bold;
 }
 
