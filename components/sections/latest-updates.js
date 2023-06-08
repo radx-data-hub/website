@@ -5,7 +5,7 @@ import Markdown from "react-markdown"
 const LatestUpdates = ({ data }) => {
   let { updateInfo } = data
   const trimText = (update) => {
-    const description = update.excerpt ?  update.excerpt :  update.body
+    const description = update.excerpt ? update.excerpt : update.body
     return description
   }
 
@@ -40,14 +40,11 @@ const LatestUpdates = ({ data }) => {
               </span>
             </p>
             <div className="mb-4 text-lg">
-              <Markdown
-                linkTarget="_blank"
-                className="rich-text-additions"
-              >
+              <Markdown linkTarget="_blank" className="rich-text-additions">
                 {trimText(update)}
               </Markdown>
-              <br/>
-              <hr/>
+              <br />
+              <hr />
             </div>
           </div>
         )

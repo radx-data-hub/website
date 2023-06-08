@@ -41,7 +41,7 @@ const Events = ({ data }) => {
           {upcoming.map((event, i) => {
             return <EventCard key={i + event.title} data={event} />
           })}
-      <br/>
+          <br />
           <br></br>
         </>
       )}
