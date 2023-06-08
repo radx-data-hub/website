@@ -153,14 +153,6 @@ footer a:hover {
   color: inherit;
 }
 
-.nav-links:hover {
-  border-bottom: 4px solid #007CBA!important;
-  }
-
-  .nav-links {
-    border-bottom: 4px solid #fff!important;
-    }
-
 .card-divider {
   @media screen and (min-width: 576px) {
     margin: 0 1rem;
@@ -168,6 +160,17 @@ footer a:hover {
   @media screen and (max-width: 575px) {
     display: none
   }
+}
+
+.nav-links:hover {
+  border-bottom: 4px solid #007CBA!important;
+}
+.nav-links {
+  border-bottom: 4px solid #fff;
+}
+
+.nav-links-util {
+  border-bottom: 4px solid #007CBA!important;
 }
 
 .navbar-light .navbar-nav .nav-link {
