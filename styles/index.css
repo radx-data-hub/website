@@ -120,7 +120,7 @@ p a:hover {
 
 .event-card a {
   color: #007cba;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 @media (max-width: 767px) {
