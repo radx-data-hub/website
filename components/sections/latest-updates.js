@@ -6,10 +6,10 @@ const LatestUpdates = ({ data }) => {
   let { updateInfo } = data
   return (
     <div className="container">
-      <h1 className="mt-[48px] mb-[8px] text-2xl text-aquaBlue font-bold">
+      <h1 className="mt-[48px] mb-[8px] text-2xl text-nihGrey font-bold">
         Latest Updates
       </h1>
-      <hr className="text-orange border-t-[2px] border-orange mb-[48px]"></hr>
+      <hr className="text-nihGrey border-t-[2px] border-nihGrey mb-[48px]"></hr>
       {updateInfo.map((update) => {
         let d = new Date(update.publishedDate)
         return (
