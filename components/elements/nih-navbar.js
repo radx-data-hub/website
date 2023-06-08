@@ -127,65 +127,69 @@ const NihNavbar = ({ navbar, pageContext }) => {
                       marginRight: "8px",
                     }}
                   >
-                    <NavDropdown.Item
-                      href={navLink.url}
-                      style={{
-                        color: "#007cba",
-                        fontSize: "16px",
-                        fontWeight: 700,
-                      }}
-                    >
-                      <FontAwesomeIcon
+                    <Link href={navLink.url} passHref>
+                      <NavDropdown.Item
+                        href={navLink.url}
                         style={{
-                          marginRight: "6px",
+                          color: "#007cba",
+                          fontSize: "16px",
+                          fontWeight: 700,
                         }}
-                        icon={faCircleInfo}
-                        size="sm"
-                      />
-                      {navLink.text}
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      href="/data"
-                      style={{
-                        color: "#007cba",
-                        fontSize: "16px",
-                        fontWeight: 700,
-                      }}
-                    >
-                      <FontAwesomeIcon
+                      >
+                        <FontAwesomeIcon
+                          style={{
+                            marginRight: "6px",
+                          }}
+                          icon={faCircleInfo}
+                          size="sm"
+                        />
+                        {navLink.text}
+                      </NavDropdown.Item>
+                    </Link>
+                    <Link href={"/data"} passHref>
+                      <NavDropdown.Item
                         style={{
-                          marginRight: "6px",
+                          color: "#007cba",
+                          fontSize: "16px",
+                          fontWeight: 700,
                         }}
-                        icon={faDatabase}
-                        size="sm"
-                      />
-                      The Data
-                    </NavDropdown.Item>
+                      >
+                        <FontAwesomeIcon
+                          style={{
+                            marginRight: "6px",
+                          }}
+                          icon={faDatabase}
+                          size="sm"
+                        />
+                        The Data
+                      </NavDropdown.Item>
+                    </Link>
                   </NavDropdown>
                 ) : (
                   <Nav.Item key={navLink.url}>
-                    <Nav.Link
-                      style={{
-                        color: "#007cba",
-                        fontSize: "16px",
-                        fontWeight: 700,
-                        marginRight: "8px",
-                        whiteSpace: "nowrap",
-                        marginLeft: "10px",
-                      }}
-                      key={navLink.id}
-                      href={navLink.url}
-                      className={"nav-links" + active(navLink.url)}
-                    >
-                      <FontAwesomeIcon
+                    <Link href={navLink.url} passHref>
+                      <Nav.Link
                         style={{
-                          marginRight: "6px",
+                          color: "#007cba",
+                          fontSize: "16px",
+                          fontWeight: 700,
+                          marginRight: "8px",
+                          whiteSpace: "nowrap",
+                          marginLeft: "10px",
                         }}
-                        icon={chooseIcon(i)}
-                        size="sm"
-                      />
-                      {navLink.text}
-                    </Nav.Link>
+                        key={navLink.id}
+                        className={"nav-links" + active(navLink.url)}
+                      >
+                        <FontAwesomeIcon
+                          style={{
+                            marginRight: "6px",
+                          }}
+                          icon={chooseIcon(i)}
+                          size="sm"
+                        />
+                        {navLink.text}
+                      </Nav.Link>
+                    </Link>
                   </Nav.Item>
                 )}
               </>
