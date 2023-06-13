@@ -9,7 +9,7 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/',
+        source: '/:slug*',
         destination: 'https://radx-hub.nih.gov/info',
         permanent: true,
       },
