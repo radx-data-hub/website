@@ -288,6 +288,7 @@ export async function getPageData({ slug, locale, preview }) {
                       title
                       publishedDate
                       body
+                      excerpt
                     }
                   }
                   ... on ComponentSectionsEvents {
@@ -299,6 +300,13 @@ export async function getPageData({ slug, locale, preview }) {
                       }
                       body
                       timeAndDate
+                    }
+                  }
+                  ... on ComponentSectionsTripleCard {
+                    title
+                    cardLink{
+                      text
+                      url
                     }
                   }
                 }

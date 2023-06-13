@@ -84,8 +84,9 @@ ButtonLink.propTypes = {
     "white-outline",
     "white",
     "dark-outline",
-    "slideshow",
     "dark-footer",
+    "slideshow-1",
+    "slideshow-2",
   ]),
   compact: PropTypes.bool,
 }

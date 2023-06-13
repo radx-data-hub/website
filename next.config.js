@@ -6,4 +6,13 @@ module.exports = {
   images: {
     domains: ['radx-images.s3.amazonaws.com'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:slug*',
+        destination: 'https://radx-hub.nih.gov/info',
+        permanent: true,
+      },
+    ]
+  },
 }

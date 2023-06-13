@@ -8,7 +8,7 @@ const RichText = ({ data }) => {
       <Markdown linkTarget="_blank" className="rich-text-additions">
         {data.content}
       </Markdown>
-      {data.border && <hr className="border-orange border-[1.4px]" />}
+      {data.border && <hr className="border-nihGrey border-[1.4px]" />}
     </div>
   )
 }
