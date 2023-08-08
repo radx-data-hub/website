@@ -5,6 +5,7 @@ import Seo from "@/components/elements/seo"
 import { useRouter } from "next/router"
 import Layout from "@/components/layout"
 import { getLocalizedPaths } from "utils/localize"
+import NihLayout from "@/components/nih-layout"
 
 // The file is called [[...slug]].js because we're using Next's
 // optional catch all routes feature. See the related docs:
@@ -33,12 +34,16 @@ const DynamicPage = ({ sections, metadata, preview, global, pageContext }) => {
   }
 
   return (
-    <Layout global={global} pageContext={pageContext}>
+    <NihLayout global={global} pageContext={pageContext}>
       {/* Add meta tags for SEO*/}
       <Seo metadata={metadataWithDefaults} />
       {/* Display content sections */}
-      <Sections sections={sections} preview={preview} />
-    </Layout>
+      <Sections
+        sections={sections}
+        preview={preview}
+        pageContext={pageContext}
+      />
+    </NihLayout>
   )
 }
 
@@ -88,7 +93,8 @@ export async function getStaticProps(context) {
   }
 
   // We have the required page data, pass it to the page component
-  const { contentSections, metadata, localizations, slug } = pageData.attributes
+  const { contentSections, metadata, localizations, slug, faqs } =
+    pageData.attributes
 
   const pageContext = {
     locale,
@@ -96,6 +102,7 @@ export async function getStaticProps(context) {
     defaultLocale,
     slug,
     localizations,
+    faqs,
   }
 
   const localizedPaths = getLocalizedPaths(pageContext)

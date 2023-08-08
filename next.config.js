@@ -5,5 +5,5 @@ module.exports = {
   },
   images: {
     domains: ['radx-images.s3.amazonaws.com'],
-  },
+  }
 }

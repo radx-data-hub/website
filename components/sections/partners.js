@@ -5,7 +5,7 @@ import Markdown from "react-markdown"
 // DISPLAY PARTNER LOGOS VIA CAROUSEL ANIMATION
 
 const ANIMATION_TIMER = 10000
-const HIGHLIGHT_TEXT_COLOR = "#4a66ac"
+const HIGHLIGHT_TEXT_COLOR = "#2e2925"
 
 // NOT CURRENTLY USED
 /* FADE OUT EFFECT FOR CONTENT
@@ -84,8 +84,8 @@ const PartnerLogos = ({
   }
 
   /* This function allows the logos to be keyboard-accessible
- */
-  const selectContent = index => () => {
+   */
+  const selectContent = (index) => () => {
     setTabIndex(index)
     setCurrentPartner(partners[index])
   }
@@ -121,18 +121,23 @@ const PartnerLogos = ({
             <button
               key={idx}
               className="grow object-scale-down flex items-center"
-              style={{ height: "130px", margin: "0px 10px" }}
+              style={{
+                margin: "0px 10px",
+                maxHeight: "130px",
+                maxWidth: "400px",
+              }}
               role="tab"
               aria-selected={indexRef.current === idx ? "true" : "false"}
               // aria-controls={`tabpanel-${partner.id}`}
               id={`tab-${partner.id}`}
               // tabIndex={indexRef.current === idx ? 0 : -1}
-              onMouseEnter={(e) => onHover(e)} onMouseOut={(e) =>onLeave(e)}
+              onMouseEnter={(e) => onHover(e)}
+              onMouseOut={(e) => onLeave(e)}
               onFocus={selectContent(idx)}
             >
               {/* eslint-disable @next/next/no-img-element */}
               <img
-                style={{ width: "100%", height: "100%" }}
+                style={{ maxHeight: "130px", maxWidth: "300px" }}
                 key={idx}
                 id={`logo-${idx}`}
                 className="partnerLogos grow"
