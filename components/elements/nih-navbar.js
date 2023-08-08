@@ -16,6 +16,7 @@ import {
   faCircleInfo,
   faFlagCheckered,
   faDatabase,
+  faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons"
 import { useRouter } from "next/router"
 import Head from "next/head"
@@ -29,16 +30,18 @@ const NihNavbar = ({ navbar, pageContext }) => {
       case 0:
         return faHouseChimney
       case 1:
-        return faFlagCheckered
+        return faMagnifyingGlass
       case 2:
-        return faCircleInfo
+        return faFlagCheckered
       case 3:
-        return faCalendar
+        return faCircleInfo
       case 4:
-        return faBullhorn
+        return faCalendar
       case 5:
-        return faClipboardQuestion
+        return faBullhorn
       case 6:
+        return faClipboardQuestion
+      case 7:
         return faRightToBracket
       default:
         return faRightToBracket
