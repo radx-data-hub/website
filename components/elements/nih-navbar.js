@@ -16,7 +16,7 @@ import {
   faCircleInfo,
   faFlagCheckered,
   faDatabase,
-  faMagnifyingGlass
+  faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons"
 import { useRouter } from "next/router"
 import Head from "next/head"
